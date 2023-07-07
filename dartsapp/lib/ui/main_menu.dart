@@ -61,64 +61,69 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SizedBox(
-          width: 350,
-          height: 25,
-          child: Container(
-            color: const Color.fromARGB(255, 19, 18, 18),
-            child: TextField(
-              controller: _player1,
-              style: const TextStyle(color: Colors.blue),
-              decoration: const InputDecoration(
-                labelStyle: TextStyle(color: Colors.blue),
-                hintStyle: TextStyle(color: Colors.blue),
-                hintText: "Jugador 1",
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        SizedBox(
-          width: 350,
-          height: 25,
-          child: Container(
-            color: const Color.fromARGB(255, 19, 18, 18),
-            child: TextField(
-              controller: _player2,
-              style: const TextStyle(color: Colors.blue),
-              decoration: const InputDecoration(
-                labelStyle: TextStyle(color: Colors.blue),
-                hintStyle: TextStyle(color: Colors.blue),
-                hintText: "Jugador 2",
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        SizedBox(
+        child: SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
             width: 350,
-            height: 25,
+            height: 50,
             child: Container(
-                color: Colors.black,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(gameRoute);
-                  },
-                  child: const Text(
-                    "Comenzar",
-                  ),
-                )))
-      ],
+              color: const Color.fromARGB(255, 19, 18, 18),
+              child: TextField(
+                controller: _player1,
+                style: const TextStyle(color: Colors.blue),
+                decoration: const InputDecoration(
+                  labelStyle: TextStyle(color: Colors.blue),
+                  hintStyle: TextStyle(color: Colors.blue),
+                  hintText: "Jugador 1",
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          SizedBox(
+            width: 350,
+            height: 50,
+            child: Container(
+              color: const Color.fromARGB(255, 19, 18, 18),
+              child: TextField(
+                controller: _player2,
+                style: const TextStyle(color: Colors.blue),
+                decoration: const InputDecoration(
+                  labelStyle: TextStyle(color: Colors.blue),
+                  hintStyle: TextStyle(color: Colors.blue),
+                  hintText: "Jugador 2",
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          SizedBox(
+              width: 350,
+              height: 50,
+              child: Container(
+                  color: Colors.black,
+                  child: TextButton(
+                    onPressed: () {
+                      if (_player1.text != "" && _player2.text != "") {
+                        Navigator.of(context).pushNamed(gameRoute,
+                            arguments: [_player1.text, _player2.text]);
+                      }
+                    },
+                    child: const Text(
+                      "Comenzar",
+                    ),
+                  )))
+        ],
+      ),
     ));
   }
 }
