@@ -81,7 +81,20 @@ class _HomeState extends State<Home> {
             width: 350,
             height: 50,
             child: Container(
-              color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10)),
+                boxShadow: [
+                  BoxShadow(
+                    spreadRadius: 3,
+                    offset: Offset(3, 3),
+                    blurRadius: 5,
+                    color: Color.fromARGB(255, 44, 193, 212).withOpacity(0.3),
+                  ),
+                ],
+              ),
               child: TextField(
                 controller: _player1,
                 style: const TextStyle(color: Colors.blue),
@@ -174,7 +187,20 @@ class _HomeState extends State<Home> {
               width: 350,
               height: 50,
               child: Container(
-                  color: Colors.black.withOpacity(0.8),
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          spreadRadius: 3,
+                          offset: Offset(-3, -3),
+                          blurRadius: 5,
+                          color: const Color.fromARGB(255, 199, 30, 30)
+                              .withOpacity(0.3),
+                        ),
+                      ],
+                      color: Colors.black.withOpacity(0.8),
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10))),
                   child: TextButton(
                     onPressed: () {
                       if (_player1.text != "" &&
