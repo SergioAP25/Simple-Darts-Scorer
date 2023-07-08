@@ -130,6 +130,10 @@ class _GameState extends State<Game> {
               flex: 2,
               child: Row(
                 children: [
+                  Container(
+                    width: 5,
+                    color: Colors.white,
+                  ),
                   Expanded(
                     child: Column(
                       children: [
@@ -245,6 +249,10 @@ class _GameState extends State<Game> {
                         ),
                       ],
                     ),
+                  ),
+                  Container(
+                    width: 5,
+                    color: Colors.white,
                   ),
                 ],
               ),
