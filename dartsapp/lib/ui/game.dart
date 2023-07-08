@@ -31,16 +31,23 @@ class _GameState extends State<Game> {
   List<String> checkouts = ["", "", "", ""];
 
   void _calculateResult(int score) {
+    int aux;
     switch (_turn) {
       case 1:
         if (score <= _p1Points) {
-          _p1Points = _p1Points - score;
+          aux = _p1Points - score;
+          if (aux != 1) {
+            _p1Points = _p1Points - score;
+          }
         }
         _turn = 2;
         break;
       case 2:
         if (score <= _p2Points) {
-          _p2Points = _p2Points - score;
+          aux = _p1Points - score;
+          if (aux != 1) {
+            _p2Points = _p2Points - score;
+          }
         }
         _turn = 1;
         break;
@@ -81,15 +88,24 @@ class _GameState extends State<Game> {
   }
 
   void _checkWin() {
+    String winner = "";
     if (_p1Sets == _maxSets) {
       _p1Win = true;
+      winner = _player1;
     }
     if (_p2Sets == _maxSets) {
       _p2Win = true;
+      winner = _player2;
     }
     if (_p1Win || _p2Win) {
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil(homeRoute, (Route<dynamic> route) => false);
+      Navigator.of(context).pushNamedAndRemoveUntil(
+          winnerRoute, (Route<dynamic> route) => false, arguments: [
+        _player1,
+        _player1,
+        _maxLegs.toString(),
+        _maxSets.toString(),
+        winner
+      ]);
     }
   }
 

@@ -10,7 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   setWindowTitle('Simple Darts Scorer');
-  setWindowMinSize(const Size(1300, 740));
+  //setWindowMinSize(const Size(1300, 740));
   runApp(const MyApp());
 }
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const MainMenu(),
       routes: {
-        homeRoute: (context) => const MyApp(),
+        homeRoute: (context) => const MainMenu(),
         gameRoute: (context) => const Game(),
         winnerRoute: (context) => const WinnerView()
       },
