@@ -17,14 +17,17 @@ class MainMenu extends StatelessWidget {
             width: double.maxFinite,
             height: double.maxFinite,
             child: Image.asset(
-              "assets/background.jpg",
+              "assets/test.jpg",
               fit: BoxFit.cover,
             ),
           ),
           BackdropFilter(
             filter: ImageFilter.blur(
-              sigmaX: 30.0,
-              sigmaY: 30.0,
+              sigmaX: 5.0,
+              sigmaY: 5.0,
+            ),
+            child: Container(
+              alignment: Alignment.center,
             ),
           ),
           const Home()
@@ -78,7 +81,7 @@ class _HomeState extends State<Home> {
             width: 350,
             height: 50,
             child: Container(
-              color: const Color.fromARGB(255, 19, 18, 18),
+              color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
               child: TextField(
                 controller: _player1,
                 style: const TextStyle(color: Colors.blue),
@@ -98,7 +101,7 @@ class _HomeState extends State<Home> {
             width: 350,
             height: 50,
             child: Container(
-              color: const Color.fromARGB(255, 19, 18, 18),
+              color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
               child: TextField(
                 controller: _player2,
                 style: const TextStyle(color: Colors.blue),
@@ -123,7 +126,8 @@ class _HomeState extends State<Home> {
                   width: 173,
                   height: 50,
                   child: Container(
-                    color: const Color.fromARGB(255, 19, 18, 18),
+                    color:
+                        const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
                     child: TextField(
                       controller: _legs,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -146,7 +150,8 @@ class _HomeState extends State<Home> {
                   width: 173,
                   height: 50,
                   child: Container(
-                    color: const Color.fromARGB(255, 19, 18, 18),
+                    color:
+                        const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
                     child: TextField(
                       controller: _sets,
                       style: const TextStyle(color: Colors.blue),
@@ -169,7 +174,7 @@ class _HomeState extends State<Home> {
               width: 350,
               height: 50,
               child: Container(
-                  color: Colors.black,
+                  color: Colors.black.withOpacity(0.8),
                   child: TextButton(
                     onPressed: () {
                       if (_player1.text != "" &&
