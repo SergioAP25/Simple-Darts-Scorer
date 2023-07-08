@@ -449,7 +449,7 @@ class _GameState extends State<Game> {
                                       child: Text(
                                         "DESHACER",
                                         style: TextStyle(
-                                            color: Colors.white, fontSize: 75),
+                                            color: Colors.white, fontSize: 40),
                                       ),
                                     ),
                                   ),
