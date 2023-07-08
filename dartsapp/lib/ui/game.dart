@@ -151,379 +151,407 @@ class _GameState extends State<Game> {
     _maxLegs = int.parse(_args![2]);
     _maxSets = int.parse(_args![3]);
 
-    return Scaffold(body: LayoutBuilder(
-      builder: (context, constraints) {
-        return Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              width: double.maxFinite,
-              height: double.maxFinite,
-              child: Image.asset(
-                "assets/test.jpg",
-                fit: BoxFit.cover,
-              ),
-            ),
-            BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 5.0,
-                sigmaY: 5.0,
-              ),
-              child: Container(
-                alignment: Alignment.center,
-              ),
-            ),
-            Container(
-              width: constraints.maxWidth * 0.95,
-              height: constraints.maxHeight * 0.9,
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.8),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(50),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    height: 100,
-                                    width: 400,
-                                    decoration: BoxDecoration(
-                                        color: _turn == 1
-                                            ? Color.fromRGBO(71, 209, 69, 0.5)
-                                            : Color.fromRGBO(
-                                                243, 150, 150, 0.5),
-                                        border: Border(
-                                          right: _turn == 1
-                                              ? BorderSide(
-                                                  color: Color.fromRGBO(
-                                                      31, 71, 31, 0.498),
-                                                  width: 10)
-                                              : BorderSide(
-                                                  color: Color.fromRGBO(
-                                                      140, 20, 20, 0.5),
-                                                  width: 10),
-                                        )),
-                                    child: Center(
-                                      child: Text(
-                                        "$_player1",
-                                        style: GoogleFonts.anton(
-                                            textStyle: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 50)),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 2,
-                                ),
-                                Flexible(
-                                  child: Container(
-                                    height: 150,
-                                    width: 400,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromRGBO(243, 150, 150, 0.5),
-                                        border: Border(
-                                            right: BorderSide(
-                                                color: Color.fromRGBO(
-                                                    140, 20, 20, 0.5),
-                                                width: 10),
-                                            bottom: BorderSide(
-                                                color: Color.fromRGBO(
-                                                    200, 32, 32, 0.5),
-                                                width: 10))),
-                                    child: Center(
-                                      child: Text(
-                                        "$_p1Points",
-                                        style: GoogleFonts.zcoolQingKeHuangYou(
-                                            textStyle: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 100,
-                                                letterSpacing: 5)),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Flexible(
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 15, right: 15, top: 15),
-                                    child: Container(
-                                      height: 100,
-                                      width: 400,
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                              color: Color.fromRGBO(
-                                                  140, 20, 20, 0.5),
-                                              width: 4),
-                                          color: Color.fromRGBO(
-                                              243, 150, 150, 0.5),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(35))),
-                                      child: Center(
-                                        child: Text(
-                                          "$_p1Sets Sets $_p2Sets",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 50),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 15, right: 15, top: 15),
-                                    child: Container(
-                                      height: 100,
-                                      width: 400,
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                              color: Color.fromRGBO(
-                                                  140, 20, 20, 0.5),
-                                              width: 4),
-                                          color: Color.fromRGBO(
-                                              243, 150, 150, 0.5),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(35))),
-                                      child: Center(
-                                        child: Text(
-                                          "$_p1Legs Legs $_p2Sets",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 50),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    height: 100,
-                                    width: 400,
-                                    decoration: BoxDecoration(
-                                        color: _turn == 2
-                                            ? Color.fromRGBO(71, 209, 69, 0.5)
-                                            : Color.fromRGBO(
-                                                243, 150, 150, 0.5),
-                                        border: Border(
-                                          left: _turn == 2
-                                              ? BorderSide(
-                                                  color: Color.fromRGBO(
-                                                      31, 71, 31, 0.498),
-                                                  width: 10)
-                                              : BorderSide(
-                                                  color: Color.fromRGBO(
-                                                      140, 20, 20, 0.5),
-                                                  width: 10),
-                                        )),
-                                    child: Center(
-                                      child: Text(
-                                        "$_player2",
-                                        style: GoogleFonts.anton(
-                                            textStyle: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 50)),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 2,
-                                ),
-                                Flexible(
-                                  child: Container(
-                                    height: 150,
-                                    width: 400,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromRGBO(243, 150, 150, 0.5),
-                                        border: Border(
-                                            left: BorderSide(
-                                                color: Color.fromRGBO(
-                                                    140, 20, 20, 0.5),
-                                                width: 10),
-                                            bottom: BorderSide(
-                                                color: Color.fromRGBO(
-                                                    200, 32, 32, 0.5),
-                                                width: 10))),
-                                    child: Center(
-                                      child: Text(
-                                        "$_p2Points",
-                                        style: GoogleFonts.zcoolQingKeHuangYou(
-                                            textStyle: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 100,
-                                                letterSpacing: 5)),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                        child: Row(
+    return Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            highlightColor: Colors.transparent,
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          iconTheme: IconThemeData(
+            color: Colors.white,
+            size: 50,
+          ),
+          backgroundColor: Colors.transparent,
+        ),
+        extendBodyBehindAppBar: true,
+        body: LayoutBuilder(
+          builder: (context, constraints) {
+            return Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: double.maxFinite,
+                  height: double.maxFinite,
+                  child: Image.asset(
+                    "assets/test.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 5.0,
+                    sigmaY: 5.0,
+                  ),
+                  child: Container(
+                    alignment: Alignment.center,
+                  ),
+                ),
+                Container(
+                  width: constraints.maxWidth * 0.95,
+                  height: constraints.maxHeight * 0.9,
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.8),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(50),
+                    child: Column(
                       children: [
                         Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(150),
-                                    bottomLeft: Radius.circular(150)),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/greenFrame.png'),
-                                  fit: BoxFit.fill,
-                                ),
-                                color: Colors.black.withOpacity(0.85)),
-                            width: 500,
-                            height: 500,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    color: Colors.transparent,
-                                    width: 495,
-                                    height: 125,
-                                    child: TextField(
-                                      decoration: const InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: "Puntuación",
-                                          hintStyle:
-                                              TextStyle(color: Colors.white)),
-                                      style: const TextStyle(
-                                          color: Colors.white, fontSize: 75),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.digitsOnly
-                                      ],
-                                      autofocus: true,
-                                      controller: _score,
-                                      textAlign: TextAlign.center,
-                                      onSubmitted: (value) {
-                                        if (value != "") {
-                                          if (_validScore(int.parse(value))) {
-                                            _calculateResult(int.parse(value));
-                                            _checkLegs();
-                                            _checkSets();
-                                            _checkWin();
-                                            _updateCheckouts();
-                                          }
-                                        }
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Container(
-                                    color: Colors.transparent,
-                                    width: 495,
-                                    height: 125,
-                                    child: TextButton(
-                                      onPressed: () {
-                                        _undo();
-                                      },
-                                      child: Text(
-                                        "DESHACER",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 40),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Flexible(
+                                      child: Container(
+                                        height: 100,
+                                        width: 400,
+                                        decoration: BoxDecoration(
+                                            color: _turn == 1
+                                                ? Color.fromRGBO(
+                                                    71, 209, 69, 0.5)
+                                                : Color.fromRGBO(
+                                                    243, 150, 150, 0.5),
+                                            border: Border(
+                                              right: _turn == 1
+                                                  ? BorderSide(
+                                                      color: Color.fromRGBO(
+                                                          31, 71, 31, 0.498),
+                                                      width: 10)
+                                                  : BorderSide(
+                                                      color: Color.fromRGBO(
+                                                          140, 20, 20, 0.5),
+                                                      width: 10),
+                                            )),
+                                        child: Center(
+                                          child: Text(
+                                            "$_player1",
+                                            style: GoogleFonts.anton(
+                                                textStyle: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 50)),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                )
-                              ],
-                            ),
+                                    SizedBox(
+                                      height: 2,
+                                    ),
+                                    Flexible(
+                                      child: Container(
+                                        height: 150,
+                                        width: 400,
+                                        decoration: BoxDecoration(
+                                            color: Color.fromRGBO(
+                                                243, 150, 150, 0.5),
+                                            border: Border(
+                                                right: BorderSide(
+                                                    color: Color.fromRGBO(
+                                                        140, 20, 20, 0.5),
+                                                    width: 10),
+                                                bottom: BorderSide(
+                                                    color: Color.fromRGBO(
+                                                        200, 32, 32, 0.5),
+                                                    width: 10))),
+                                        child: Center(
+                                          child: Text(
+                                            "$_p1Points",
+                                            style:
+                                                GoogleFonts.zcoolQingKeHuangYou(
+                                                    textStyle: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 100,
+                                                        letterSpacing: 5)),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Flexible(
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 15, right: 15, top: 15),
+                                        child: Container(
+                                          height: 100,
+                                          width: 400,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Color.fromRGBO(
+                                                      140, 20, 20, 0.5),
+                                                  width: 4),
+                                              color: Color.fromRGBO(
+                                                  243, 150, 150, 0.5),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(35))),
+                                          child: Center(
+                                            child: Text(
+                                              "$_p1Sets Sets $_p2Sets",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 50),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Flexible(
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 15, right: 15, top: 15),
+                                        child: Container(
+                                          height: 100,
+                                          width: 400,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Color.fromRGBO(
+                                                      140, 20, 20, 0.5),
+                                                  width: 4),
+                                              color: Color.fromRGBO(
+                                                  243, 150, 150, 0.5),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(35))),
+                                          child: Center(
+                                            child: Text(
+                                              "$_p1Legs Legs $_p2Sets",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 50),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Flexible(
+                                      child: Container(
+                                        height: 100,
+                                        width: 400,
+                                        decoration: BoxDecoration(
+                                            color: _turn == 2
+                                                ? Color.fromRGBO(
+                                                    71, 209, 69, 0.5)
+                                                : Color.fromRGBO(
+                                                    243, 150, 150, 0.5),
+                                            border: Border(
+                                              left: _turn == 2
+                                                  ? BorderSide(
+                                                      color: Color.fromRGBO(
+                                                          31, 71, 31, 0.498),
+                                                      width: 10)
+                                                  : BorderSide(
+                                                      color: Color.fromRGBO(
+                                                          140, 20, 20, 0.5),
+                                                      width: 10),
+                                            )),
+                                        child: Center(
+                                          child: Text(
+                                            "$_player2",
+                                            style: GoogleFonts.anton(
+                                                textStyle: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 50)),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 2,
+                                    ),
+                                    Flexible(
+                                      child: Container(
+                                        height: 150,
+                                        width: 400,
+                                        decoration: BoxDecoration(
+                                            color: Color.fromRGBO(
+                                                243, 150, 150, 0.5),
+                                            border: Border(
+                                                left: BorderSide(
+                                                    color: Color.fromRGBO(
+                                                        140, 20, 20, 0.5),
+                                                    width: 10),
+                                                bottom: BorderSide(
+                                                    color: Color.fromRGBO(
+                                                        200, 32, 32, 0.5),
+                                                    width: 10))),
+                                        child: Center(
+                                          child: Text(
+                                            "$_p2Points",
+                                            style:
+                                                GoogleFonts.zcoolQingKeHuangYou(
+                                                    textStyle: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 100,
+                                                        letterSpacing: 5)),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Expanded(
-                          child: Container(
-                            width: 500,
-                            height: 500,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(150),
-                                    bottomRight: Radius.circular(150)),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/greenFrame.png'),
-                                  fit: BoxFit.fill,
-                                ),
-                                color: Colors.black.withOpacity(0.85)),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 35,
-                                ),
-                                Flexible(
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 50,
-                                    color: Colors.transparent,
-                                    child: Text(
-                                      "Posibilidades de cierre",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 35),
+                            child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(150),
+                                        bottomLeft: Radius.circular(150)),
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage('assets/greenFrame.png'),
+                                      fit: BoxFit.fill,
                                     ),
-                                  ),
+                                    color: Colors.black.withOpacity(0.85)),
+                                width: 500,
+                                height: 500,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Flexible(
+                                      child: Container(
+                                        color: Colors.transparent,
+                                        width: 495,
+                                        height: 125,
+                                        child: TextField(
+                                          decoration: const InputDecoration(
+                                              border: InputBorder.none,
+                                              hintText: "Puntuación",
+                                              hintStyle: TextStyle(
+                                                  color: Colors.white)),
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 75),
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter
+                                                .digitsOnly
+                                          ],
+                                          autofocus: true,
+                                          controller: _score,
+                                          textAlign: TextAlign.center,
+                                          onSubmitted: (value) {
+                                            if (value != "") {
+                                              if (_validScore(
+                                                  int.parse(value))) {
+                                                _calculateResult(
+                                                    int.parse(value));
+                                                _checkLegs();
+                                                _checkSets();
+                                                _checkWin();
+                                                _updateCheckouts();
+                                              }
+                                            }
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Flexible(
+                                      child: Container(
+                                        color: Colors.transparent,
+                                        width: 495,
+                                        height: 125,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            _undo();
+                                          },
+                                          child: Text(
+                                            "DESHACER",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 40),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                SizedBox(
-                                  height: 25,
-                                ),
-                                Expanded(
-                                  child: Container(
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      color: Colors.transparent,
-                                      child: ListView.builder(
-                                        itemCount: _checkouts.length,
-                                        itemBuilder: (context, index) {
-                                          return Text(
-                                            _checkouts[index],
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                                color: Color.fromARGB(
-                                                    255, 92, 199, 96),
-                                                fontSize: 35),
-                                          );
-                                        },
-                                      )),
-                                )
-                              ],
+                              ),
                             ),
-                          ),
-                        )
+                            Expanded(
+                              child: Container(
+                                width: 500,
+                                height: 500,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(150),
+                                        bottomRight: Radius.circular(150)),
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage('assets/greenFrame.png'),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    color: Colors.black.withOpacity(0.85)),
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 35,
+                                    ),
+                                    Flexible(
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 50,
+                                        color: Colors.transparent,
+                                        child: Text(
+                                          "Posibilidades de cierre",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 35),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          color: Colors.transparent,
+                                          child: ListView.builder(
+                                            itemCount: _checkouts.length,
+                                            itemBuilder: (context, index) {
+                                              return Text(
+                                                _checkouts[index],
+                                                textAlign: TextAlign.center,
+                                                style: const TextStyle(
+                                                    color: Color.fromARGB(
+                                                        255, 92, 199, 96),
+                                                    fontSize: 35),
+                                              );
+                                            },
+                                          )),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ))
                       ],
-                    ))
-                  ],
-                ),
-              ),
-            )
-          ],
-        );
-      },
-    ));
+                    ),
+                  ),
+                )
+              ],
+            );
+          },
+        ));
   }
 }
