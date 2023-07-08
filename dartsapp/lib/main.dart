@@ -1,10 +1,15 @@
 import 'package:dartsapp/ui/game.dart';
 import 'package:dartsapp/ui/main_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:window_size/window_size.dart';
 
 import 'constants/routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  setWindowTitle('Simple Darts Scorer');
+  setWindowMinSize(const Size(1300, 740));
   runApp(const MyApp());
 }
 
