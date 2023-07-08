@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Game extends StatefulWidget {
-  const Game({super.key});
+  const Game({Key? key}) : super(key: key);
 
   @override
   State<Game> createState() => _GameState();
@@ -122,81 +122,91 @@ class _GameState extends State<Game> {
     _maxSets = int.parse(_args![3]);
 
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 27, 27, 27),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
+      backgroundColor: const Color.fromARGB(255, 27, 27, 27),
+      body: LayoutBuilder(builder: (context, constraints) {
+        return Column(
+          children: [
+            Expanded(
+              flex: 2,
+              child: Row(
                 children: [
                   Expanded(
                     child: Column(
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                              color: Colors.black,
-                              border: _turn == 1
-                                  ? Border.all(
-                                      color: Colors.blueAccent, width: 5)
-                                  : Border.all(color: Colors.black, width: 5)),
+                            color: Colors.black,
+                            border: _turn == 1
+                                ? Border.all(color: Colors.blueAccent, width: 5)
+                                : Border.all(color: Colors.black, width: 5),
+                          ),
                           width: double.infinity,
-                          height: 150,
+                          height: constraints.maxHeight * 0.15,
                           child: Center(
-                              child: Text(
-                            _player1,
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 35),
-                          )),
+                            child: Text(
+                              _player1,
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 35),
+                            ),
+                          ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 150,
-                          color: Colors.black,
-                          child: Center(
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            height: constraints.maxHeight * 0.2,
+                            color: Colors.black,
+                            child: Center(
                               child: Text(
-                            _p1Points.toString(),
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 75),
-                          )),
+                                _p1Points.toString(),
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 75),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
                   Container(
                     width: 5,
-                    height: 300,
                     color: Colors.white,
                   ),
                   Expanded(
                     child: Column(
                       children: [
-                        Container(
-                          width: double.infinity,
-                          height: 150,
-                          color: Colors.black,
-                          child: Center(
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            height: constraints.maxHeight * 0.2,
+                            color: Colors.black,
+                            child: Center(
                               child: Text(
-                            "$_p1Sets   Sets   $_p2Sets",
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 35),
-                          )),
+                                "$_p1Sets   Sets   $_p2Sets",
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 35),
+                              ),
+                            ),
+                          ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 150,
-                          color: Colors.black,
-                          child: Center(
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            height: constraints.maxHeight * 0.2,
+                            color: Colors.black,
+                            child: Center(
                               child: Text(
-                            "$_p1Legs   Legs   $_p2Legs",
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 35),
-                          )),
+                                "$_p1Legs   Legs   $_p2Legs",
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 35),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
                   Container(
                     width: 5,
-                    height: 300,
                     color: Colors.white,
                   ),
                   Expanded(
@@ -204,86 +214,92 @@ class _GameState extends State<Game> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                              color: Colors.black,
-                              border: _turn == 2
-                                  ? Border.all(
-                                      color: Colors.blueAccent, width: 5)
-                                  : Border.all(color: Colors.black, width: 5)),
+                            color: Colors.black,
+                            border: _turn == 2
+                                ? Border.all(color: Colors.blueAccent, width: 5)
+                                : Border.all(color: Colors.black, width: 5),
+                          ),
                           width: double.infinity,
-                          height: 150,
+                          height: constraints.maxHeight * 0.15,
                           child: Center(
-                              child: Text(
-                            _player2,
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 35),
-                          )),
+                            child: Text(
+                              _player2,
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 35),
+                            ),
+                          ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 150,
-                          color: Colors.black,
-                          child: Center(
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            height: constraints.maxHeight * 0.2,
+                            color: Colors.black,
+                            child: Center(
                               child: Text(
-                            _p2Points.toString(),
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 75),
-                          )),
+                                _p2Points.toString(),
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 75),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    border: Border.all(color: Colors.white, width: 5)),
-                width: double.infinity,
-                height: 275,
-                child: ListView.builder(
-                  itemCount: checkouts.length,
-                  itemBuilder: (context, index) {
-                    return Text(
-                      checkouts[index],
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          color: Color.fromARGB(255, 92, 199, 96),
-                          fontSize: 50),
-                    );
-                  },
-                ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black,
+                border: Border.all(color: Colors.white, width: 5),
               ),
-              Container(
-                width: double.infinity,
-                height: 125,
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    border: Border.all(color: Colors.white, width: 5)),
-                child: TextField(
-                  decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      hintText: "Puntuación",
-                      hintStyle: TextStyle(color: Colors.white)),
-                  style: const TextStyle(color: Colors.white, fontSize: 75),
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  autofocus: true,
-                  controller: _score,
-                  textAlign: TextAlign.center,
-                  onSubmitted: (value) {
-                    if (value != "") {
-                      if (_validScore(int.parse(value))) {
-                        _calculateResult(int.parse(value));
-                        _checkLegs();
-                        _checkSets();
-                        _checkWin();
-                        _updateCheckouts();
-                      }
+              width: double.infinity,
+              height: constraints.maxHeight * 0.3,
+              child: ListView.builder(
+                itemCount: checkouts.length,
+                itemBuilder: (context, index) {
+                  return Text(
+                    checkouts[index],
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        color: Color.fromARGB(255, 92, 199, 96), fontSize: 50),
+                  );
+                },
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: constraints.maxHeight * 0.15,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  border: Border.all(color: Colors.white, width: 5)),
+              child: TextField(
+                decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Puntuación",
+                    hintStyle: TextStyle(color: Colors.white)),
+                style: const TextStyle(color: Colors.white, fontSize: 75),
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                autofocus: true,
+                controller: _score,
+                textAlign: TextAlign.center,
+                onSubmitted: (value) {
+                  if (value != "") {
+                    if (_validScore(int.parse(value))) {
+                      _calculateResult(int.parse(value));
+                      _checkLegs();
+                      _checkSets();
+                      _checkWin();
+                      _updateCheckouts();
                     }
-                  },
-                ),
+                  }
+                },
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        );
+      }),
+    );
   }
 }
