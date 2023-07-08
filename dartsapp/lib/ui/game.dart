@@ -4,6 +4,7 @@ import 'package:dartsapp/constants/routes.dart';
 import 'package:dartsapp/util/dart_checkouts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Game extends StatefulWidget {
   const Game({Key? key}) : super(key: key);
@@ -211,8 +212,10 @@ class _GameState extends State<Game> {
                                     child: Center(
                                       child: Text(
                                         "$_player1",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 50),
+                                        style: GoogleFonts.anton(
+                                            textStyle: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 50)),
                                       ),
                                     ),
                                   ),
@@ -239,8 +242,11 @@ class _GameState extends State<Game> {
                                     child: Center(
                                       child: Text(
                                         "$_p1Points",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 50),
+                                        style: GoogleFonts.zcoolQingKeHuangYou(
+                                            textStyle: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 100,
+                                                letterSpacing: 5)),
                                       ),
                                     ),
                                   ),
@@ -334,8 +340,10 @@ class _GameState extends State<Game> {
                                     child: Center(
                                       child: Text(
                                         "$_player2",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 50),
+                                        style: GoogleFonts.anton(
+                                            textStyle: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 50)),
                                       ),
                                     ),
                                   ),
@@ -362,8 +370,11 @@ class _GameState extends State<Game> {
                                     child: Center(
                                       child: Text(
                                         "$_p2Points",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 50),
+                                        style: GoogleFonts.zcoolQingKeHuangYou(
+                                            textStyle: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 100,
+                                                letterSpacing: 5)),
                                       ),
                                     ),
                                   ),
