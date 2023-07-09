@@ -58,14 +58,15 @@ class _HomeViewWidgetsState extends State<HomeViewWidgets> {
             height: 50,
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10), topRight: Radius.circular(10)),
               boxShadow: [
                 BoxShadow(
                   spreadRadius: 3,
-                  offset: Offset(3, 3),
+                  offset: const Offset(3, 3),
                   blurRadius: 5,
-                  color: Color.fromARGB(255, 44, 193, 212).withOpacity(0.3),
+                  color:
+                      const Color.fromARGB(255, 44, 193, 212).withOpacity(0.3),
                 ),
               ],
             ),
@@ -80,13 +81,13 @@ class _HomeViewWidgetsState extends State<HomeViewWidgets> {
             ),
           ),
         ),
-        Flexible(
-          child: const SizedBox(
+        const Flexible(
+          child: SizedBox(
             height: 5,
           ),
         ),
-        Flexible(
-          child: const SizedBox(
+        const Flexible(
+          child: SizedBox(
             height: 5,
           ),
         ),
@@ -98,14 +99,14 @@ class _HomeViewWidgetsState extends State<HomeViewWidgets> {
                   boxShadow: [
                     BoxShadow(
                       spreadRadius: 3,
-                      offset: Offset(-3, -3),
+                      offset: const Offset(-3, -3),
                       blurRadius: 5,
                       color: const Color.fromARGB(255, 199, 30, 30)
                           .withOpacity(0.3),
                     ),
                   ],
                   color: Colors.black.withOpacity(0.8),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10))),
               child: TextButton(

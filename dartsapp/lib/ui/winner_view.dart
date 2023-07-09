@@ -42,7 +42,7 @@ class _WinnerViewState extends State<WinnerView> {
           return Stack(
             alignment: Alignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: double.maxFinite,
                 height: double.maxFinite,
                 child: Image.asset(
@@ -64,19 +64,20 @@ class _WinnerViewState extends State<WinnerView> {
                 width: constraints.maxWidth * 0.5,
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.8),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
                   boxShadow: [
                     BoxShadow(
                       spreadRadius: 3,
                       blurRadius: 5,
-                      color: Color.fromARGB(255, 194, 167, 17).withOpacity(0.3),
+                      color: const Color.fromARGB(255, 194, 167, 17)
+                          .withOpacity(0.3),
                     ),
                   ],
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Flexible(
+                    const Flexible(
                       child: Text(
                         "El ganador es:",
                         style: TextStyle(color: Colors.green, fontSize: 50),
@@ -84,14 +85,14 @@ class _WinnerViewState extends State<WinnerView> {
                     ),
                     Flexible(
                       child: Text(
-                        "${_winner}",
-                        style: TextStyle(
+                        _winner,
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 236, 107, 98),
                             fontSize: 50,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
-                    Flexible(
+                    const Flexible(
                       child: SizedBox(
                         height: 200,
                       ),
@@ -102,7 +103,8 @@ class _WinnerViewState extends State<WinnerView> {
                         height: 75,
                         decoration: BoxDecoration(
                           color: Colors.black.withOpacity(0.8),
-                          borderRadius: BorderRadius.all(Radius.circular(25)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(25)),
                           boxShadow: [
                             BoxShadow(
                               spreadRadius: 3,
@@ -129,7 +131,7 @@ class _WinnerViewState extends State<WinnerView> {
                         ),
                       ),
                     ),
-                    Flexible(
+                    const Flexible(
                       child: SizedBox(
                         height: 10,
                       ),
@@ -140,7 +142,8 @@ class _WinnerViewState extends State<WinnerView> {
                         height: 75,
                         decoration: BoxDecoration(
                           color: Colors.black.withOpacity(0.6),
-                          borderRadius: BorderRadius.all(Radius.circular(25)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(25)),
                           boxShadow: [
                             BoxShadow(
                               spreadRadius: 3,

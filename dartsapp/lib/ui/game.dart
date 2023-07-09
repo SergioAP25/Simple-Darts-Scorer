@@ -30,7 +30,7 @@ class _GameState extends State<Game> {
   bool _p1Win = false;
   bool _p2Win = false;
   List<String> _checkouts = ["", "", "", ""];
-  List<int> _scoreList = [];
+  final List<int> _scoreList = [];
 
   void _calculateResult(int score) {
     int aux;
@@ -163,7 +163,7 @@ class _GameState extends State<Game> {
         return Stack(
           alignment: Alignment.center,
           children: [
-            Container(
+            SizedBox(
               width: double.maxFinite,
               height: double.maxFinite,
               child: Image.asset(
@@ -187,7 +187,7 @@ class _GameState extends State<Game> {
                 color: Colors.black.withOpacity(0.8),
               ),
               child: Padding(
-                padding: EdgeInsets.all(50),
+                padding: const EdgeInsets.all(50),
                 child: Column(
                   children: [
                     Expanded(
@@ -202,39 +202,40 @@ class _GameState extends State<Game> {
                                     width: 400,
                                     decoration: BoxDecoration(
                                         color: _turn == 1
-                                            ? Color.fromRGBO(71, 209, 69, 0.5)
-                                            : Color.fromRGBO(
+                                            ? const Color.fromRGBO(
+                                                71, 209, 69, 0.5)
+                                            : const Color.fromRGBO(
                                                 243, 150, 150, 0.5),
                                         border: Border(
                                           right: _turn == 1
-                                              ? BorderSide(
+                                              ? const BorderSide(
                                                   color: Color.fromRGBO(
                                                       31, 71, 31, 0.498),
                                                   width: 10)
-                                              : BorderSide(
+                                              : const BorderSide(
                                                   color: Color.fromRGBO(
                                                       140, 20, 20, 0.5),
                                                   width: 10),
                                         )),
                                     child: Center(
                                       child: Text(
-                                        "$_player1",
+                                        _player1,
                                         style: GoogleFonts.anton(
-                                            textStyle: TextStyle(
+                                            textStyle: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 50)),
                                       ),
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 2,
                                 ),
                                 Flexible(
                                   child: Container(
                                     height: 150,
                                     width: 400,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color:
                                             Color.fromRGBO(243, 150, 150, 0.5),
                                         border: Border(
@@ -250,7 +251,7 @@ class _GameState extends State<Game> {
                                       child: Text(
                                         "$_p1Points",
                                         style: GoogleFonts.zcoolQingKeHuangYou(
-                                            textStyle: TextStyle(
+                                            textStyle: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 100,
                                                 letterSpacing: 5)),
@@ -266,24 +267,24 @@ class _GameState extends State<Game> {
                               children: [
                                 Flexible(
                                   child: Padding(
-                                    padding: EdgeInsets.only(
+                                    padding: const EdgeInsets.only(
                                         left: 15, right: 15, top: 15),
                                     child: Container(
                                       height: 100,
                                       width: 400,
                                       decoration: BoxDecoration(
                                           border: Border.all(
-                                              color: Color.fromRGBO(
+                                              color: const Color.fromRGBO(
                                                   140, 20, 20, 0.5),
                                               width: 4),
-                                          color: Color.fromRGBO(
+                                          color: const Color.fromRGBO(
                                               243, 150, 150, 0.5),
-                                          borderRadius: BorderRadius.all(
+                                          borderRadius: const BorderRadius.all(
                                               Radius.circular(35))),
                                       child: Center(
                                         child: Text(
                                           "$_p1Sets Sets $_p2Sets",
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.white,
                                               fontSize: 50),
                                         ),
@@ -293,24 +294,24 @@ class _GameState extends State<Game> {
                                 ),
                                 Flexible(
                                   child: Padding(
-                                    padding: EdgeInsets.only(
+                                    padding: const EdgeInsets.only(
                                         left: 15, right: 15, top: 15),
                                     child: Container(
                                       height: 100,
                                       width: 400,
                                       decoration: BoxDecoration(
                                           border: Border.all(
-                                              color: Color.fromRGBO(
+                                              color: const Color.fromRGBO(
                                                   140, 20, 20, 0.5),
                                               width: 4),
-                                          color: Color.fromRGBO(
+                                          color: const Color.fromRGBO(
                                               243, 150, 150, 0.5),
-                                          borderRadius: BorderRadius.all(
+                                          borderRadius: const BorderRadius.all(
                                               Radius.circular(35))),
                                       child: Center(
                                         child: Text(
                                           "$_p1Legs Legs $_p2Sets",
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.white,
                                               fontSize: 50),
                                         ),
@@ -330,39 +331,40 @@ class _GameState extends State<Game> {
                                     width: 400,
                                     decoration: BoxDecoration(
                                         color: _turn == 2
-                                            ? Color.fromRGBO(71, 209, 69, 0.5)
-                                            : Color.fromRGBO(
+                                            ? const Color.fromRGBO(
+                                                71, 209, 69, 0.5)
+                                            : const Color.fromRGBO(
                                                 243, 150, 150, 0.5),
                                         border: Border(
                                           left: _turn == 2
-                                              ? BorderSide(
+                                              ? const BorderSide(
                                                   color: Color.fromRGBO(
                                                       31, 71, 31, 0.498),
                                                   width: 10)
-                                              : BorderSide(
+                                              : const BorderSide(
                                                   color: Color.fromRGBO(
                                                       140, 20, 20, 0.5),
                                                   width: 10),
                                         )),
                                     child: Center(
                                       child: Text(
-                                        "$_player2",
+                                        _player2,
                                         style: GoogleFonts.anton(
-                                            textStyle: TextStyle(
+                                            textStyle: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 50)),
                                       ),
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 2,
                                 ),
                                 Flexible(
                                   child: Container(
                                     height: 150,
                                     width: 400,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color:
                                             Color.fromRGBO(243, 150, 150, 0.5),
                                         border: Border(
@@ -378,7 +380,7 @@ class _GameState extends State<Game> {
                                       child: Text(
                                         "$_p2Points",
                                         style: GoogleFonts.zcoolQingKeHuangYou(
-                                            textStyle: TextStyle(
+                                            textStyle: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 100,
                                                 letterSpacing: 5)),
@@ -398,10 +400,10 @@ class _GameState extends State<Game> {
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(150),
                                     bottomLeft: Radius.circular(150)),
-                                image: DecorationImage(
+                                image: const DecorationImage(
                                   image: AssetImage('assets/greenFrame.png'),
                                   fit: BoxFit.fill,
                                 ),
@@ -453,7 +455,7 @@ class _GameState extends State<Game> {
                                       onPressed: () {
                                         _undo();
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         "DESHACER",
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 40),
@@ -470,17 +472,17 @@ class _GameState extends State<Game> {
                             width: 500,
                             height: 500,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                     topRight: Radius.circular(150),
                                     bottomRight: Radius.circular(150)),
-                                image: DecorationImage(
+                                image: const DecorationImage(
                                   image: AssetImage('assets/greenFrame.png'),
                                   fit: BoxFit.fill,
                                 ),
                                 color: Colors.black.withOpacity(0.85)),
                             child: Column(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   height: 25,
                                 ),
                                 Flexible(
@@ -488,7 +490,7 @@ class _GameState extends State<Game> {
                                     width: double.infinity,
                                     height: 50,
                                     color: Colors.transparent,
-                                    child: Text(
+                                    child: const Text(
                                       "Posibilidades de cierre",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
@@ -496,7 +498,7 @@ class _GameState extends State<Game> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
                                 Flexible(
@@ -533,7 +535,7 @@ class _GameState extends State<Game> {
               top: constraints.maxHeight * 0.01,
               child: IconButton(
                 highlightColor: Colors.transparent,
-                icon: Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back),
                 color: Colors.white,
                 iconSize: 50,
                 onPressed: () {
@@ -546,7 +548,7 @@ class _GameState extends State<Game> {
               top: constraints.maxHeight * 0.01,
               child: IconButton(
                 highlightColor: Colors.transparent,
-                icon: Icon(Icons.home),
+                icon: const Icon(Icons.home),
                 color: Colors.white,
                 iconSize: 50,
                 onPressed: () {

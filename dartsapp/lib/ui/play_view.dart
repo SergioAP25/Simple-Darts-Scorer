@@ -38,7 +38,7 @@ class PlayView extends StatelessWidget {
                 top: constraints.maxHeight * 0.01,
                 child: IconButton(
                   highlightColor: Colors.transparent,
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   color: Colors.white,
                   iconSize: 50,
                   onPressed: () {
@@ -99,21 +99,22 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
             height: 50,
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10), topRight: Radius.circular(10)),
               boxShadow: [
                 BoxShadow(
                   spreadRadius: 3,
-                  offset: Offset(3, 3),
+                  offset: const Offset(3, 3),
                   blurRadius: 5,
-                  color: Color.fromARGB(255, 44, 193, 212).withOpacity(0.3),
+                  color:
+                      const Color.fromARGB(255, 44, 193, 212).withOpacity(0.3),
                 ),
               ],
             ),
             child: TextField(
               controller: _player1,
               style: GoogleFonts.pressStart2p(
-                  textStyle: TextStyle(color: Colors.blue)),
+                  textStyle: const TextStyle(color: Colors.blue)),
               decoration: const InputDecoration(
                 labelStyle: TextStyle(color: Colors.blue),
                 hintStyle: TextStyle(color: Colors.blue),
@@ -124,8 +125,8 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
             ),
           ),
         ),
-        Flexible(
-          child: const SizedBox(
+        const Flexible(
+          child: SizedBox(
             height: 5,
           ),
         ),
@@ -137,7 +138,7 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
             child: TextField(
               controller: _player2,
               style: GoogleFonts.pressStart2p(
-                  textStyle: TextStyle(color: Colors.blue)),
+                  textStyle: const TextStyle(color: Colors.blue)),
               decoration: const InputDecoration(
                 labelStyle: TextStyle(color: Colors.blue),
                 hintStyle: TextStyle(color: Colors.blue),
@@ -148,8 +149,8 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
             ),
           ),
         ),
-        Flexible(
-          child: const SizedBox(
+        const Flexible(
+          child: SizedBox(
             height: 5,
           ),
         ),
@@ -167,7 +168,7 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                     controller: _legs,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     style: GoogleFonts.pressStart2p(
-                        textStyle: TextStyle(color: Colors.blue)),
+                        textStyle: const TextStyle(color: Colors.blue)),
                     decoration: const InputDecoration(
                       labelStyle: TextStyle(color: Colors.blue),
                       hintStyle: TextStyle(color: Colors.blue),
@@ -189,7 +190,7 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                   child: TextField(
                     controller: _sets,
                     style: GoogleFonts.pressStart2p(
-                        textStyle: TextStyle(color: Colors.blue)),
+                        textStyle: const TextStyle(color: Colors.blue)),
                     decoration: const InputDecoration(
                       labelStyle: TextStyle(color: Colors.blue),
                       hintStyle: TextStyle(color: Colors.blue),
@@ -203,8 +204,8 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
             ],
           ),
         ),
-        Flexible(
-          child: const SizedBox(
+        const Flexible(
+          child: SizedBox(
             height: 5,
           ),
         ),
@@ -216,14 +217,14 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                   boxShadow: [
                     BoxShadow(
                       spreadRadius: 3,
-                      offset: Offset(-3, -3),
+                      offset: const Offset(-3, -3),
                       blurRadius: 5,
                       color: const Color.fromARGB(255, 199, 30, 30)
                           .withOpacity(0.3),
                     ),
                   ],
                   color: Colors.black.withOpacity(0.8),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10))),
               child: TextButton(
