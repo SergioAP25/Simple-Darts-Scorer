@@ -68,10 +68,6 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
   late final TextEditingController _player2;
   late final TextEditingController _legs;
   late final TextEditingController _sets;
-  String _player1Hint = "Jugador 1";
-  String _player2Hint = "Jugador 2";
-  String _legsHint = "Legs";
-  String _setsHint = "Sets";
 
   @override
   void initState() {
@@ -117,30 +113,22 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                 ),
               ],
             ),
-            child: Focus(
-              onFocusChange: (hasFocus) {
-                if (hasFocus) {
-                  setState(() {
-                    _player1Hint = "";
-                  });
-                } else {
-                  setState(() {
-                    _player1Hint = "Jugador 1";
-                  });
-                }
-              },
-              child: TextField(
-                controller: _player1,
-                style: GoogleFonts.pressStart2p(
-                    textStyle: const TextStyle(color: Colors.blue)),
-                decoration: InputDecoration(
-                  labelStyle: const TextStyle(color: Colors.blue),
-                  hintStyle: const TextStyle(color: Colors.blue),
-                  hintText: _player1Hint,
+            child: TextField(
+              controller: _player1,
+              style: GoogleFonts.pressStart2p(
+                  textStyle: const TextStyle(color: Colors.blue)),
+              decoration: const InputDecoration(
+                label: Center(
+                  child: Text(
+                    "Jugador 1",
+                  ),
                 ),
-                textInputAction: TextInputAction.next,
-                textAlign: TextAlign.center,
+                contentPadding: EdgeInsets.all(20),
+                floatingLabelBehavior: FloatingLabelBehavior.never,
+                labelStyle: TextStyle(color: Colors.blue),
               ),
+              textInputAction: TextInputAction.next,
+              textAlign: TextAlign.center,
             ),
           ),
         ),
@@ -154,30 +142,22 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
             width: 500,
             height: 50,
             color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
-            child: Focus(
-              onFocusChange: (hasFocus) {
-                if (hasFocus) {
-                  setState(() {
-                    _player2Hint = "";
-                  });
-                } else {
-                  setState(() {
-                    _player2Hint = "Jugador 2";
-                  });
-                }
-              },
-              child: TextField(
-                controller: _player2,
-                style: GoogleFonts.pressStart2p(
-                    textStyle: const TextStyle(color: Colors.blue)),
-                decoration: InputDecoration(
-                  labelStyle: const TextStyle(color: Colors.blue),
-                  hintStyle: const TextStyle(color: Colors.blue),
-                  hintText: _player2Hint,
+            child: TextField(
+              controller: _player2,
+              style: GoogleFonts.pressStart2p(
+                  textStyle: const TextStyle(color: Colors.blue)),
+              decoration: const InputDecoration(
+                label: Center(
+                  child: Text(
+                    "Jugador 2",
+                  ),
                 ),
-                textInputAction: TextInputAction.next,
-                textAlign: TextAlign.center,
+                contentPadding: EdgeInsets.all(20),
+                floatingLabelBehavior: FloatingLabelBehavior.never,
+                labelStyle: TextStyle(color: Colors.blue),
               ),
+              textInputAction: TextInputAction.next,
+              textAlign: TextAlign.center,
             ),
           ),
         ),
@@ -196,31 +176,23 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                   width: 248,
                   height: 50,
                   color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
-                  child: Focus(
-                    onFocusChange: (hasFocus) {
-                      if (hasFocus) {
-                        setState(() {
-                          _legsHint = "";
-                        });
-                      } else {
-                        setState(() {
-                          _legsHint = "Legs";
-                        });
-                      }
-                    },
-                    child: TextField(
-                      controller: _legs,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      style: GoogleFonts.pressStart2p(
-                          textStyle: const TextStyle(color: Colors.blue)),
-                      decoration: InputDecoration(
-                        labelStyle: const TextStyle(color: Colors.blue),
-                        hintStyle: const TextStyle(color: Colors.blue),
-                        hintText: _legsHint,
+                  child: TextField(
+                    controller: _legs,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    style: GoogleFonts.pressStart2p(
+                        textStyle: const TextStyle(color: Colors.blue)),
+                    decoration: const InputDecoration(
+                      label: Center(
+                        child: Text(
+                          "Legs",
+                        ),
                       ),
-                      textInputAction: TextInputAction.next,
-                      textAlign: TextAlign.center,
+                      contentPadding: EdgeInsets.all(20),
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      labelStyle: TextStyle(color: Colors.blue),
                     ),
+                    textInputAction: TextInputAction.next,
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -232,31 +204,23 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                   width: 248,
                   height: 50,
                   color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
-                  child: Focus(
-                    onFocusChange: (hasFocus) {
-                      if (hasFocus) {
-                        setState(() {
-                          _setsHint = "";
-                        });
-                      } else {
-                        setState(() {
-                          _setsHint = "Sets";
-                        });
-                      }
-                    },
-                    child: TextField(
-                      controller: _sets,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      style: GoogleFonts.pressStart2p(
-                          textStyle: const TextStyle(color: Colors.blue)),
-                      decoration: InputDecoration(
-                        labelStyle: const TextStyle(color: Colors.blue),
-                        hintStyle: const TextStyle(color: Colors.blue),
-                        hintText: _setsHint,
+                  child: TextField(
+                    controller: _sets,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    style: GoogleFonts.pressStart2p(
+                        textStyle: const TextStyle(color: Colors.blue)),
+                    decoration: const InputDecoration(
+                      label: Center(
+                        child: Text(
+                          "Sets",
+                        ),
                       ),
-                      textInputAction: TextInputAction.next,
-                      textAlign: TextAlign.center,
+                      contentPadding: EdgeInsets.all(20),
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      labelStyle: TextStyle(color: Colors.blue),
                     ),
+                    textInputAction: TextInputAction.next,
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
