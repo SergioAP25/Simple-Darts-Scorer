@@ -1,5 +1,4 @@
 import 'package:dartsapp/domain/models/current_game_model.dart';
-import 'package:sqflite_common/sqlite_api.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import 'constants/database_constants.dart';
