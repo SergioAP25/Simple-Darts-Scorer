@@ -153,6 +153,7 @@ class _GameState extends State<Game> {
 
     return Scaffold(
         appBar: AppBar(
+          elevation: 0,
           leading: IconButton(
             highlightColor: Colors.transparent,
             icon: Icon(Icons.arrow_back),
@@ -160,6 +161,7 @@ class _GameState extends State<Game> {
               Navigator.of(context).pop();
             },
           ),
+          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.home))],
           iconTheme: IconThemeData(
             color: Colors.white,
             size: 50,
@@ -517,14 +519,13 @@ class _GameState extends State<Game> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: 25,
-                                    ),
                                     Expanded(
                                       child: Container(
+                                          alignment: Alignment.topLeft,
                                           width: double.infinity,
                                           height: double.infinity,
-                                          color: Colors.transparent,
+                                          color: const Color.fromARGB(
+                                              255, 0, 0, 0),
                                           child: ListView.builder(
                                             itemCount: _checkouts.length,
                                             itemBuilder: (context, index) {

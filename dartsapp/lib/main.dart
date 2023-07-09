@@ -1,5 +1,6 @@
 import 'package:dartsapp/ui/game.dart';
-import 'package:dartsapp/ui/main_menu.dart';
+import 'package:dartsapp/ui/home_view.dart';
+import 'package:dartsapp/ui/play_view.dart';
 import 'package:dartsapp/ui/winner_view.dart';
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
@@ -25,9 +26,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainMenu(),
+      home: const HomeView(),
       routes: {
-        homeRoute: (context) => const MainMenu(),
+        homeRoute: (context) => const HomeView(),
+        playRoute: (context) => const PlayView(),
         gameRoute: (context) => const Game(),
         winnerRoute: (context) => const WinnerView()
       },

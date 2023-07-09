@@ -5,13 +5,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MainMenu extends StatelessWidget {
-  const MainMenu({super.key});
+class PlayView extends StatelessWidget {
+  const PlayView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      appBar: AppBar(
+        elevation: 0,
+        leading: IconButton(
+          highlightColor: Colors.transparent,
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+          size: 50,
+        ),
+        backgroundColor: Colors.transparent,
+      ),
+      extendBodyBehindAppBar: true,
       body: Stack(
         children: [
           SizedBox(
@@ -31,21 +46,21 @@ class MainMenu extends StatelessWidget {
               alignment: Alignment.center,
             ),
           ),
-          const Home()
+          const PlayViewWidgets()
         ],
       ),
     );
   }
 }
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class PlayViewWidgets extends StatefulWidget {
+  const PlayViewWidgets({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<PlayViewWidgets> createState() => _PlayViewWidgetsState();
 }
 
-class _HomeState extends State<Home> {
+class _PlayViewWidgetsState extends State<PlayViewWidgets> {
   late final TextEditingController _player1;
   late final TextEditingController _player2;
   late final TextEditingController _legs;
