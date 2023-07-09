@@ -98,4 +98,13 @@ class DartsService {
 
     await db.rawQuery("DELETE FROM currentGame");
   }
+
+  Future<int> countCurrentGame() async {
+    await _ensureDbIsOpen();
+    final db = _getDatabaseOrThrow();
+
+    final result = await db.rawQuery("SELECT COUNT(*) FROM currentGame");
+
+    return result.first["COUNT(*)"] as int;
+  }
 }
