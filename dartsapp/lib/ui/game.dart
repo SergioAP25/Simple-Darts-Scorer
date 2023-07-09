@@ -154,7 +154,10 @@ class _GameState extends State<Game> {
           _turn = 1;
           break;
       }
+
       _scoreList.removeLast();
+      _gameBloc.add(InsertCurrentGameEvent(CurrentGameModel(_player1, _p1Points,
+          _p1Legs, _p1Sets, _player2, _p2Points, _p2Legs, _p2Sets, _turn)));
     }
     _updateCheckouts();
     setState(() {});

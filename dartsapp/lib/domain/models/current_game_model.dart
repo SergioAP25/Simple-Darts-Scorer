@@ -27,7 +27,7 @@ class CurrentGameModel {
     return CurrentGameModel(
         currentGameDatabaseModel.player1,
         currentGameDatabaseModel.player1Points,
-        currentGameDatabaseModel.player2Legs,
+        currentGameDatabaseModel.player1Legs,
         currentGameDatabaseModel.player1Sets,
         currentGameDatabaseModel.player2,
         currentGameDatabaseModel.player2Points,
