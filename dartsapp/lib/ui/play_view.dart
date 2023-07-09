@@ -68,6 +68,10 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
   late final TextEditingController _player2;
   late final TextEditingController _legs;
   late final TextEditingController _sets;
+  String _player1Hint = "Jugador 1";
+  String _player2Hint = "Jugador 2";
+  String _legsHint = "Legs";
+  String _setsHint = "Sets";
 
   @override
   void initState() {
@@ -113,17 +117,30 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                 ),
               ],
             ),
-            child: TextField(
-              controller: _player1,
-              style: GoogleFonts.pressStart2p(
-                  textStyle: const TextStyle(color: Colors.blue)),
-              decoration: const InputDecoration(
-                labelStyle: TextStyle(color: Colors.blue),
-                hintStyle: TextStyle(color: Colors.blue),
-                hintText: "Jugador 1",
+            child: Focus(
+              onFocusChange: (hasFocus) {
+                if (hasFocus) {
+                  setState(() {
+                    _player1Hint = "";
+                  });
+                } else {
+                  setState(() {
+                    _player1Hint = "Jugador 1";
+                  });
+                }
+              },
+              child: TextField(
+                controller: _player1,
+                style: GoogleFonts.pressStart2p(
+                    textStyle: const TextStyle(color: Colors.blue)),
+                decoration: InputDecoration(
+                  labelStyle: const TextStyle(color: Colors.blue),
+                  hintStyle: const TextStyle(color: Colors.blue),
+                  hintText: _player1Hint,
+                ),
+                textInputAction: TextInputAction.next,
+                textAlign: TextAlign.center,
               ),
-              textInputAction: TextInputAction.next,
-              textAlign: TextAlign.center,
             ),
           ),
         ),
@@ -137,17 +154,30 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
             width: 500,
             height: 50,
             color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
-            child: TextField(
-              controller: _player2,
-              style: GoogleFonts.pressStart2p(
-                  textStyle: const TextStyle(color: Colors.blue)),
-              decoration: const InputDecoration(
-                labelStyle: TextStyle(color: Colors.blue),
-                hintStyle: TextStyle(color: Colors.blue),
-                hintText: "Jugador 2",
+            child: Focus(
+              onFocusChange: (hasFocus) {
+                if (hasFocus) {
+                  setState(() {
+                    _player2Hint = "";
+                  });
+                } else {
+                  setState(() {
+                    _player2Hint = "Jugador 2";
+                  });
+                }
+              },
+              child: TextField(
+                controller: _player2,
+                style: GoogleFonts.pressStart2p(
+                    textStyle: const TextStyle(color: Colors.blue)),
+                decoration: InputDecoration(
+                  labelStyle: const TextStyle(color: Colors.blue),
+                  hintStyle: const TextStyle(color: Colors.blue),
+                  hintText: _player2Hint,
+                ),
+                textInputAction: TextInputAction.next,
+                textAlign: TextAlign.center,
               ),
-              textInputAction: TextInputAction.next,
-              textAlign: TextAlign.center,
             ),
           ),
         ),
@@ -166,18 +196,31 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                   width: 248,
                   height: 50,
                   color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
-                  child: TextField(
-                    controller: _legs,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    style: GoogleFonts.pressStart2p(
-                        textStyle: const TextStyle(color: Colors.blue)),
-                    decoration: const InputDecoration(
-                      labelStyle: TextStyle(color: Colors.blue),
-                      hintStyle: TextStyle(color: Colors.blue),
-                      hintText: "Legs",
+                  child: Focus(
+                    onFocusChange: (hasFocus) {
+                      if (hasFocus) {
+                        setState(() {
+                          _legsHint = "";
+                        });
+                      } else {
+                        setState(() {
+                          _legsHint = "Legs";
+                        });
+                      }
+                    },
+                    child: TextField(
+                      controller: _legs,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      style: GoogleFonts.pressStart2p(
+                          textStyle: const TextStyle(color: Colors.blue)),
+                      decoration: InputDecoration(
+                        labelStyle: const TextStyle(color: Colors.blue),
+                        hintStyle: const TextStyle(color: Colors.blue),
+                        hintText: _legsHint,
+                      ),
+                      textInputAction: TextInputAction.next,
+                      textAlign: TextAlign.center,
                     ),
-                    textInputAction: TextInputAction.next,
-                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -189,17 +232,31 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                   width: 248,
                   height: 50,
                   color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
-                  child: TextField(
-                    controller: _sets,
-                    style: GoogleFonts.pressStart2p(
-                        textStyle: const TextStyle(color: Colors.blue)),
-                    decoration: const InputDecoration(
-                      labelStyle: TextStyle(color: Colors.blue),
-                      hintStyle: TextStyle(color: Colors.blue),
-                      hintText: "Sets",
+                  child: Focus(
+                    onFocusChange: (hasFocus) {
+                      if (hasFocus) {
+                        setState(() {
+                          _setsHint = "";
+                        });
+                      } else {
+                        setState(() {
+                          _setsHint = "Sets";
+                        });
+                      }
+                    },
+                    child: TextField(
+                      controller: _sets,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      style: GoogleFonts.pressStart2p(
+                          textStyle: const TextStyle(color: Colors.blue)),
+                      decoration: InputDecoration(
+                        labelStyle: const TextStyle(color: Colors.blue),
+                        hintStyle: const TextStyle(color: Colors.blue),
+                        hintText: _setsHint,
+                      ),
+                      textInputAction: TextInputAction.next,
+                      textAlign: TextAlign.center,
                     ),
-                    textInputAction: TextInputAction.next,
-                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
