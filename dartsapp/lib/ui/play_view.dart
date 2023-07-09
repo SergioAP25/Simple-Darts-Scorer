@@ -11,43 +11,58 @@ class PlayView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          highlightColor: Colors.transparent,
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        iconTheme: IconThemeData(
-          color: Colors.white,
-          size: 50,
-        ),
-        backgroundColor: Colors.transparent,
-      ),
-      extendBodyBehindAppBar: true,
-      body: Stack(
-        children: [
-          SizedBox(
-            width: double.maxFinite,
-            height: double.maxFinite,
-            child: Image.asset(
-              "assets/test.jpg",
-              fit: BoxFit.cover,
-            ),
-          ),
-          BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: 5.0,
-              sigmaY: 5.0,
-            ),
-            child: Container(
-              alignment: Alignment.center,
-            ),
-          ),
-          const PlayViewWidgets()
-        ],
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Stack(
+            children: [
+              SizedBox(
+                width: double.maxFinite,
+                height: double.maxFinite,
+                child: Image.asset(
+                  "assets/test.jpg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+              BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 5.0,
+                  sigmaY: 5.0,
+                ),
+                child: Container(
+                  alignment: Alignment.center,
+                ),
+              ),
+              const PlayViewWidgets(),
+              Positioned(
+                left: constraints.maxWidth * 0.01,
+                top: constraints.maxHeight * 0.01,
+                child: IconButton(
+                  highlightColor: Colors.transparent,
+                  icon: Icon(Icons.arrow_back),
+                  color: Colors.white,
+                  iconSize: 50,
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ),
+              Positioned(
+                left: constraints.maxWidth * 0.942,
+                top: constraints.maxHeight * 0.01,
+                child: IconButton(
+                  highlightColor: Colors.transparent,
+                  icon: Icon(Icons.home),
+                  color: Colors.white,
+                  iconSize: 50,
+                  onPressed: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        homeRoute, (Route<dynamic> route) => false);
+                  },
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
