@@ -43,7 +43,8 @@ class PlayView extends StatelessWidget {
                   color: Colors.white,
                   iconSize: 50,
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        homeRoute, (Route<dynamic> route) => false);
                   },
                 ),
               ),
