@@ -495,10 +495,19 @@ class _GameState extends State<Game> {
                                         height: 125,
                                         child: TextField(
                                           decoration: const InputDecoration(
-                                              border: InputBorder.none,
-                                              hintText: "Puntuación",
-                                              hintStyle: TextStyle(
-                                                  color: Colors.white)),
+                                            label: Center(
+                                              child: Text(
+                                                "Puntuación",
+                                              ),
+                                            ),
+                                            contentPadding: EdgeInsets.all(20),
+                                            floatingLabelBehavior:
+                                                FloatingLabelBehavior.never,
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            border: InputBorder.none,
+                                            hintText: "",
+                                          ),
                                           style: const TextStyle(
                                               color: Colors.white,
                                               fontSize: 75),
