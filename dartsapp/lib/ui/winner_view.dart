@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:dartsapp/constants/views.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/routes.dart';
@@ -117,6 +118,7 @@ class _WinnerViewState extends State<WinnerView> {
                           onPressed: () {
                             Navigator.of(context)
                                 .pushReplacementNamed(gameRoute, arguments: [
+                              newGame,
                               _player1,
                               _player2,
                               _maxLegs.toString(),
