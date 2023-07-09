@@ -17,7 +17,7 @@ class DartsRepository {
     await _database.insertCurrentGame(currentGame: currentGameModel);
   }
 
-  Future<CurrentGameModel> getCurrentGame() async {
+  Future<CurrentGameModel> getCurrentGameFromDatabase() async {
     final result = await _database.getCurrentGame();
     return CurrentGameModel.fromDatabase(result);
   }
