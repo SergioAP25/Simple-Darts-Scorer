@@ -46,20 +46,6 @@ class PlayView extends StatelessWidget {
                   },
                 ),
               ),
-              Positioned(
-                left: constraints.maxWidth * 0.942,
-                top: constraints.maxHeight * 0.01,
-                child: IconButton(
-                  highlightColor: Colors.transparent,
-                  icon: Icon(Icons.home),
-                  color: Colors.white,
-                  iconSize: 50,
-                  onPressed: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                        homeRoute, (Route<dynamic> route) => false);
-                  },
-                ),
-              ),
             ],
           );
         },

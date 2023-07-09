@@ -113,14 +113,13 @@ class _WinnerViewState extends State<WinnerView> {
                         ),
                         child: TextButton(
                           onPressed: () {
-                            Navigator.of(context).pushNamedAndRemoveUntil(
-                                gameRoute, (Route<dynamic> route) => false,
-                                arguments: [
-                                  _player1,
-                                  _player2,
-                                  _maxLegs.toString(),
-                                  _maxSets.toString()
-                                ]);
+                            Navigator.of(context)
+                                .pushReplacementNamed(gameRoute, arguments: [
+                              _player1,
+                              _player2,
+                              _maxLegs.toString(),
+                              _maxSets.toString()
+                            ]);
                           },
                           child: const Text(
                             "Volver a jugar",

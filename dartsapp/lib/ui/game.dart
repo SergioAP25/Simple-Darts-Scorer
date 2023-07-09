@@ -100,8 +100,7 @@ class _GameState extends State<Game> {
       winner = _player2;
     }
     if (_p1Win || _p2Win) {
-      Navigator.of(context).pushNamedAndRemoveUntil(
-          winnerRoute, (Route<dynamic> route) => false, arguments: [
+      Navigator.of(context).pushReplacementNamed(winnerRoute, arguments: [
         _player1,
         _player2,
         _maxLegs.toString(),
