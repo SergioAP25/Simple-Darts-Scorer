@@ -93,7 +93,7 @@ class DartsService {
     return CurrentGameDatabaseModel.fromRow(results.first);
   }
 
-  void deleteCurrentGame() async {
+  Future<void> deleteCurrentGame() async {
     await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
 

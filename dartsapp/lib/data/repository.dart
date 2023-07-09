@@ -13,8 +13,16 @@ class DartsRepository {
 
   DartsRepository._sharedInstance();
 
+  Future<void> insertCurrentGame(CurrentGameModel currentGameModel) async {
+    await _database.insertCurrentGame(currentGame: currentGameModel);
+  }
+
   Future<CurrentGameModel> getCurrentGame() async {
     final result = await _database.getCurrentGame();
     return CurrentGameModel.fromDatabase(result);
+  }
+
+  Future<void> deleteCurrentGame() async {
+    await _database.getCurrentGame();
   }
 }
