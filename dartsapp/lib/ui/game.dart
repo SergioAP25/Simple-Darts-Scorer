@@ -40,7 +40,12 @@ class _GameState extends State<Game> {
           aux = _p1Points - score;
           if (aux != 1) {
             _p1Points = _p1Points - score;
+            _scoreList.add(score);
+          } else {
+            _scoreList.add(0);
           }
+        } else {
+          _scoreList.add(0);
         }
         _turn = 2;
         break;
@@ -49,7 +54,12 @@ class _GameState extends State<Game> {
           aux = _p2Points - score;
           if (aux != 1) {
             _p2Points = _p2Points - score;
+            _scoreList.add(score);
+          } else {
+            _scoreList.add(0);
           }
+        } else {
+          _scoreList.add(0);
         }
         _turn = 1;
         break;
@@ -62,9 +72,7 @@ class _GameState extends State<Game> {
     if (value > 180) {
       isValid = false;
     }
-    if (isValid) {
-      _scoreList.add(value);
-    }
+
     return isValid;
   }
 
@@ -138,6 +146,7 @@ class _GameState extends State<Game> {
       }
       _scoreList.removeLast();
     }
+    _updateCheckouts();
     setState(() {});
   }
 

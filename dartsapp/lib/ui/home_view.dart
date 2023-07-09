@@ -86,6 +86,25 @@ class _HomeViewWidgetsState extends State<HomeViewWidgets> {
             height: 5,
           ),
         ),
+        Flexible(
+          child: Container(
+            width: 500,
+            height: 50,
+            color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
+            child: TextButton(
+              onPressed: () {},
+              child: Text(
+                "Continuar",
+                style: GoogleFonts.pressStart2p(),
+              ),
+            ),
+          ),
+        ),
+        const Flexible(
+          child: SizedBox(
+            height: 5,
+          ),
+        ),
         const Flexible(
           child: SizedBox(
             height: 5,
