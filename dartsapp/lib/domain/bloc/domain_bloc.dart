@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartsapp/domain/get_current_game.dart';
 import 'package:dartsapp/domain/insert_current_game.dart';
+import '../countCurrentGame.dart';
 import '../delete_current_game.dart';
 import 'domain_event.dart';
 import 'domain_state.dart';
@@ -9,6 +10,7 @@ class DomainBloc extends Bloc<DomainEvent, DomainState> {
   final GetCurrentGame _getCurrentGame = GetCurrentGame();
   final InsertCurrentGame _insertCurrentGame = InsertCurrentGame();
   final DeleteCurrentGame _deleteCurrentGame = DeleteCurrentGame();
+  final CountCurrentGame _countCurrentGame = CountCurrentGame();
 
   DomainBloc() : super(const DomainStateInitial()) {
     on<GetCurrentGameEvent>((event, emit) async {
@@ -33,6 +35,15 @@ class DomainBloc extends Bloc<DomainEvent, DomainState> {
       try {
         await _deleteCurrentGame.deleteCurrentGame();
         emit(const DomainStateLoaded());
+      } catch (e) {
+        emit(const DomainError("An error ocurred"));
+      }
+    });
+
+    on<CountCurrentGameEvent>((event, emit) async {
+      try {
+        final result = await _countCurrentGame.countCurrentGame();
+        emit(DomainStateLoadedCountCurrentGame(result));
       } catch (e) {
         emit(const DomainError("An error ocurred"));
       }

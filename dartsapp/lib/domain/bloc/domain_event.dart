@@ -18,3 +18,7 @@ class InsertCurrentGameEvent extends DomainEvent {
 class DeleteCurrentGameEvent extends DomainEvent {
   const DeleteCurrentGameEvent();
 }
+
+class CountCurrentGameEvent extends DomainEvent {
+  const CountCurrentGameEvent();
+}
