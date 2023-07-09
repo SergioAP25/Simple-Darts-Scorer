@@ -12,6 +12,7 @@ class CurrentGameDatabaseModel {
   final int player2Points;
   final int player2Legs;
   final int player2Sets;
+  final int turn;
 
   const CurrentGameDatabaseModel(
       this.id,
@@ -22,7 +23,8 @@ class CurrentGameDatabaseModel {
       this.player2,
       this.player2Points,
       this.player2Legs,
-      this.player2Sets);
+      this.player2Sets,
+      this.turn);
 
   CurrentGameDatabaseModel.fromRow(Map<String, Object?> map)
       : id = map[currentGameIdColumn] as int,
@@ -33,5 +35,6 @@ class CurrentGameDatabaseModel {
         player2 = map[player2Column] as String,
         player2Points = map[player2PointsColumn] as int,
         player2Legs = map[player2LegsColumn] as int,
-        player2Sets = map[player2SetsColumn] as int;
+        player2Sets = map[player2SetsColumn] as int,
+        turn = map[turnColumn] as int;
 }

@@ -23,6 +23,6 @@ class DartsRepository {
   }
 
   Future<void> deleteCurrentGame() async {
-    await _database.getCurrentGame();
+    await _database.deleteCurrentGame();
   }
 }

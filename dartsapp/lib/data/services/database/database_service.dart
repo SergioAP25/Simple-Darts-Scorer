@@ -76,7 +76,8 @@ class DartsService {
           player2Column: currentGame.player2,
           player2PointsColumn: currentGame.player2Points,
           player2LegsColumn: currentGame.player2Legs,
-          player2SetsColumn: currentGame.player2Sets
+          player2SetsColumn: currentGame.player2Sets,
+          turnColumn: currentGame.turn,
         },
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
@@ -88,7 +89,6 @@ class DartsService {
     final results = await db.query(
       currentGameTable,
     );
-
     return CurrentGameDatabaseModel.fromRow(results.first);
   }
 

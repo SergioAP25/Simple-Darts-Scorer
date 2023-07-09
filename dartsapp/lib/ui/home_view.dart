@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:dartsapp/constants/routes.dart';
+import 'package:dartsapp/constants/views.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -92,7 +93,11 @@ class _HomeViewWidgetsState extends State<HomeViewWidgets> {
             height: 50,
             color: const Color.fromARGB(255, 19, 18, 18).withOpacity(0.8),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(gameRoute, arguments: [
+                  currentGame,
+                ]);
+              },
               child: Text(
                 "Continuar",
                 style: GoogleFonts.pressStart2p(),

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:dartsapp/constants/routes.dart';
+import 'package:dartsapp/constants/views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -234,10 +235,11 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                       _legs.text != "" &&
                       _sets.text != "") {
                     Navigator.of(context).pushNamed(gameRoute, arguments: [
+                      newGame,
                       _player1.text,
                       _player2.text,
                       _legs.text,
-                      _sets.text
+                      _sets.text,
                     ]);
                   }
                 },

@@ -3,15 +3,16 @@ import 'package:dartsapp/ui/home_view.dart';
 import 'package:dartsapp/ui/play_view.dart';
 import 'package:dartsapp/ui/winner_view.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:window_size/window_size.dart';
 
 import 'constants/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  sqfliteFfiInit();
+  databaseFactory = databaseFactoryFfi;
   setWindowTitle('Simple Darts Scorer');
-  //setWindowMinSize(const Size(1300, 740));
   runApp(const MyApp());
 }
 

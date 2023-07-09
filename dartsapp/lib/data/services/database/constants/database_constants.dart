@@ -11,6 +11,7 @@ const player2Column = "player2";
 const player2PointsColumn = "player2Points";
 const player2LegsColumn = "player2Legs";
 const player2SetsColumn = "player2Sets";
+const turnColumn = "turn";
 
 // Table creations
 const createCurrentGameTable = """ CREATE TABLE IF NOT EXISTS "currentGame" (
@@ -23,5 +24,6 @@ const createCurrentGameTable = """ CREATE TABLE IF NOT EXISTS "currentGame" (
         "player2Points" INTEGER NOT NULL,
         "player2Legs" INTEGER NOT NULL,
         "player2Sets" INTEGER NOT NULL,
+        "turn" INTEGER NOT NULL,
         PRIMARY KEY("id" AUTOINCREMENT)
       );""";

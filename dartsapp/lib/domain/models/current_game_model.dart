@@ -9,17 +9,18 @@ class CurrentGameModel {
   final int player2Points;
   final int player2Legs;
   final int player2Sets;
+  final int turn;
 
   CurrentGameModel(
-    this.player1,
-    this.player1Points,
-    this.player1Legs,
-    this.player1Sets,
-    this.player2,
-    this.player2Points,
-    this.player2Legs,
-    this.player2Sets,
-  );
+      this.player1,
+      this.player1Points,
+      this.player1Legs,
+      this.player1Sets,
+      this.player2,
+      this.player2Points,
+      this.player2Legs,
+      this.player2Sets,
+      this.turn);
 
   static CurrentGameModel fromDatabase(
       CurrentGameDatabaseModel currentGameDatabaseModel) {
@@ -31,6 +32,7 @@ class CurrentGameModel {
         currentGameDatabaseModel.player2,
         currentGameDatabaseModel.player2Points,
         currentGameDatabaseModel.player2Legs,
-        currentGameDatabaseModel.player2Sets);
+        currentGameDatabaseModel.player2Sets,
+        currentGameDatabaseModel.turn);
   }
 }
