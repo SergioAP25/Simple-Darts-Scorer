@@ -167,6 +167,16 @@ class _GameState extends State<Game> {
         _player2 = _args![2];
         _maxLegs = int.parse(_args![3]);
         _maxSets = int.parse(_args![4]);
+        _gameBloc.add(InsertCurrentGameEvent(CurrentGameModel(
+            _player1,
+            _p1Points,
+            _p1Legs,
+            _p1Sets,
+            _player2,
+            _p2Points,
+            _p2Legs,
+            _p2Sets,
+            _turn)));
       }
       if (_view == currentGame) {
         _player1 = "";
