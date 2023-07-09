@@ -28,6 +28,11 @@ class DomainStateLoadedCountCurrentGame extends DomainState {
   const DomainStateLoadedCountCurrentGame(this.currentGameCount);
 }
 
+class DomainStateDeleted extends DomainState {
+  final int deleted;
+  const DomainStateDeleted(this.deleted);
+}
+
 class DomainError extends DomainState {
   final String? error;
   const DomainError(this.error);

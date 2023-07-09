@@ -633,7 +633,8 @@ class _GameState extends State<Game> {
                     color: Colors.white,
                     iconSize: 50,
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          playRoute, (Route<dynamic> route) => false);
                     },
                   ),
                 ),

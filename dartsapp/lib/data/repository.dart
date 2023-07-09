@@ -22,8 +22,8 @@ class DartsRepository {
     return CurrentGameModel.fromDatabase(result);
   }
 
-  Future<void> deleteCurrentGame() async {
-    await _database.deleteCurrentGame();
+  Future<int> deleteCurrentGame() async {
+    return await _database.deleteCurrentGame();
   }
 
   Future<int> countCurrentGame() async {

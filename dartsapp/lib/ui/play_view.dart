@@ -235,13 +235,15 @@ class _PlayViewWidgetsState extends State<PlayViewWidgets> {
                       _player2.text != "" &&
                       _legs.text != "" &&
                       _sets.text != "") {
-                    Navigator.of(context).pushNamed(gameRoute, arguments: [
-                      newGame,
-                      _player1.text,
-                      _player2.text,
-                      _legs.text,
-                      _sets.text,
-                    ]);
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        gameRoute, (Route<dynamic> route) => false,
+                        arguments: [
+                          newGame,
+                          _player1.text,
+                          _player2.text,
+                          _legs.text,
+                          _sets.text,
+                        ]);
                   }
                 },
                 child: Text(

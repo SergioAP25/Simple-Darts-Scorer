@@ -108,6 +108,7 @@ class _HomeViewWidgetsState extends State<HomeViewWidgets> {
                 builder: (context, state) {
                   if (state is DomainStateLoadedCountCurrentGame) {
                     _currentGameCount = state.currentGameCount;
+                    print(_currentGameCount);
                   }
                   return TextButton(
                     onPressed: _currentGameCount == 0

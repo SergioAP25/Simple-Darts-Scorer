@@ -92,11 +92,12 @@ class DartsService {
     return CurrentGameDatabaseModel.fromRow(results.first);
   }
 
-  Future<void> deleteCurrentGame() async {
+  Future<int> deleteCurrentGame() async {
     await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
 
     await db.rawQuery("DELETE FROM currentGame");
+    return 1;
   }
 
   Future<int> countCurrentGame() async {

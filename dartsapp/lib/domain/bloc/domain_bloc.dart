@@ -33,8 +33,8 @@ class DomainBloc extends Bloc<DomainEvent, DomainState> {
 
     on<DeleteCurrentGameEvent>((event, emit) async {
       try {
-        await _deleteCurrentGame.deleteCurrentGame();
-        emit(const DomainStateLoaded());
+        final result = await _deleteCurrentGame.deleteCurrentGame();
+        emit(DomainStateDeleted(result));
       } catch (e) {
         emit(const DomainError("An error ocurred"));
       }
