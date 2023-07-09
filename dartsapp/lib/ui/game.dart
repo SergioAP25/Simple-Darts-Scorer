@@ -25,12 +25,12 @@ class _GameState extends State<Game> {
   int _p2Sets = 0;
   int _p1Points = 501;
   int _p2Points = 501;
-  int _lastScore = 0;
   late final TextEditingController _score;
   int? _turn = 1;
   bool _p1Win = false;
   bool _p2Win = false;
   List<String> _checkouts = ["", "", "", ""];
+  List<int> _scoreList = [];
 
   void _calculateResult(int score) {
     int aux;
@@ -61,6 +61,9 @@ class _GameState extends State<Game> {
     bool isValid = true;
     if (value > 180) {
       isValid = false;
+    }
+    if (isValid) {
+      _scoreList.add(value);
     }
     return isValid;
   }
@@ -122,15 +125,20 @@ class _GameState extends State<Game> {
   }
 
   void _undo() {
-    print("aaa");
-    switch (_turn) {
-      case 1:
-        _p1Points = _p1Points + _lastScore;
-        break;
-      case 2:
-        _p2Points = _p2Points + _lastScore;
-        break;
+    if (_scoreList.isNotEmpty) {
+      switch (_turn) {
+        case 1:
+          _p2Points = _p2Points + _scoreList.last;
+          _turn = 2;
+          break;
+        case 2:
+          _p1Points = _p1Points + _scoreList.last;
+          _turn = 1;
+          break;
+      }
+      _scoreList.removeLast();
     }
+    setState(() {});
   }
 
   @override
