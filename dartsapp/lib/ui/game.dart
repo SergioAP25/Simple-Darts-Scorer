@@ -46,7 +46,7 @@ class _GameState extends State<Game> {
         break;
       case 2:
         if (score <= _p2Points) {
-          aux = _p1Points - score;
+          aux = _p2Points - score;
           if (aux != 1) {
             _p2Points = _p2Points - score;
           }
