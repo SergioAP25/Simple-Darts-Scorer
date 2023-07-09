@@ -14,3 +14,7 @@ class InsertCurrentGameEvent extends DomainEvent {
   final CurrentGameModel currentGame;
   const InsertCurrentGameEvent(this.currentGame);
 }
+
+class DeleteCurrentGameEvent extends DomainEvent {
+  const DeleteCurrentGameEvent();
+}
