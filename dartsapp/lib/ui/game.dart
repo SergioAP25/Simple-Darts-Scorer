@@ -44,6 +44,7 @@ class _GameState extends State<Game> {
   bool init = false;
   final FocusNode _scoreNode = FocusNode();
   bool _isHovered = false;
+  ScrollController _controller = ScrollController();
 
   bool _validScore(int value) {
     bool isValid = true;
@@ -676,18 +677,22 @@ class _GameState extends State<Game> {
                                           width: double.infinity,
                                           height: 225,
                                           color: Colors.transparent,
-                                          child: ListView.builder(
-                                            itemCount: _checkouts.length,
-                                            itemBuilder: (context, index) {
-                                              return Text(
-                                                _checkouts[index],
-                                                textAlign: TextAlign.center,
-                                                style: const TextStyle(
-                                                    color: Color.fromARGB(
-                                                        255, 92, 199, 96),
-                                                    fontSize: 35),
-                                              );
-                                            },
+                                          child: Scrollbar(
+                                            controller: _controller,
+                                            child: ListView.builder(
+                                              controller: _controller,
+                                              itemCount: _checkouts.length,
+                                              itemBuilder: (context, index) {
+                                                return Text(
+                                                  _checkouts[index],
+                                                  textAlign: TextAlign.center,
+                                                  style: const TextStyle(
+                                                      color: Color.fromARGB(
+                                                          255, 92, 199, 96),
+                                                      fontSize: 35),
+                                                );
+                                              },
+                                            ),
                                           )),
                                     )
                                   ],
