@@ -5,6 +5,7 @@ import 'package:dartsapp/constants/views.dart';
 import 'package:dartsapp/domain/bloc/domain_bloc.dart';
 import 'package:dartsapp/domain/bloc/domain_event.dart';
 import 'package:dartsapp/domain/models/current_game_model.dart';
+import 'package:dartsapp/domain/models/game_model.dart';
 import 'package:dartsapp/util/dart_checkouts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,47 +38,12 @@ class _GameState extends State<Game> {
   bool _p1Win = false;
   bool _p2Win = false;
   List<String> _checkouts = ["", "", "", ""];
-  final List<int> _scoreList = [];
+  final List<GameModel> _scoreList = [];
   String _view = "";
   final DomainBloc _gameBloc = DomainBloc();
   bool init = false;
   final FocusNode _scoreNode = FocusNode();
   bool _isHovered = false;
-
-  void _calculateResult(int score) {
-    int aux;
-    switch (_turn) {
-      case 1:
-        if (score <= _p1Points) {
-          aux = _p1Points - score;
-          if (aux != 1) {
-            _p1Points = _p1Points - score;
-            _scoreList.add(score);
-          } else {
-            _scoreList.add(0);
-          }
-        } else {
-          _scoreList.add(0);
-        }
-        _turn = 2;
-        break;
-      case 2:
-        if (score <= _p2Points) {
-          aux = _p2Points - score;
-          if (aux != 1) {
-            _p2Points = _p2Points - score;
-            _scoreList.add(score);
-          } else {
-            _scoreList.add(0);
-          }
-        } else {
-          _scoreList.add(0);
-        }
-        _turn = 1;
-        break;
-    }
-    setState(() {});
-  }
 
   bool _validScore(int value) {
     bool isValid = true;
@@ -88,16 +54,59 @@ class _GameState extends State<Game> {
     return isValid;
   }
 
+  void _calculateResult(int score) {
+    int aux;
+    switch (_turn) {
+      case 1:
+        if (score <= _p1Points) {
+          aux = _p1Points - score;
+          if (aux != 1) {
+            _p1Points = _p1Points - score;
+            _scoreList.add(GameModel(score));
+          } else {
+            _scoreList.add(GameModel(0));
+          }
+        } else {
+          _scoreList.add(GameModel(0));
+        }
+        _turn = 2;
+        break;
+      case 2:
+        if (score <= _p2Points) {
+          aux = _p2Points - score;
+          if (aux != 1) {
+            _p2Points = _p2Points - score;
+            _scoreList.add(GameModel(score));
+          } else {
+            _scoreList.add(GameModel(0));
+          }
+        } else {
+          _scoreList.add(GameModel(0));
+        }
+        _turn = 1;
+        break;
+    }
+    setState(() {});
+  }
+
   void _checkLegs() {
     if (_p1Points == 0) {
       _p1Legs++;
+      _scoreList.last.previousP1Score = int.parse(_score.text);
+      _scoreList.last.previousP2Score = _p2Points;
       _p1Points = 501;
       _p2Points = 501;
+      _scoreList.last.gameLeg = true;
     }
     if (_p2Points == 0) {
+      print(_p2Legs);
       _p2Legs++;
+      print(_p2Legs);
+      _scoreList.last.previousP1Score = _p1Points;
+      _scoreList.last.previousP2Score = int.parse(_score.text);
       _p1Points = 501;
       _p2Points = 501;
+      _scoreList.last.gameLeg = true;
     }
   }
 
@@ -105,10 +114,12 @@ class _GameState extends State<Game> {
     if (_p1Legs == _maxLegs) {
       _p1Legs = 0;
       _p1Sets++;
+      _scoreList.last.gameSet = true;
     }
     if (_p2Legs == _maxLegs) {
       _p2Legs = 0;
       _p2Sets++;
+      _scoreList.last.gameSet = true;
     }
   }
 
@@ -148,11 +159,33 @@ class _GameState extends State<Game> {
     if (_scoreList.isNotEmpty) {
       switch (_turn) {
         case 1:
-          _p2Points = _p2Points + _scoreList.last;
+          if (_scoreList.last.gameSet) {
+            _p2Sets = _p2Sets - 1;
+            _p2Legs = _maxLegs - 1;
+            _p1Points = _scoreList.last.previousP1Score;
+            _p2Points = _scoreList.last.previousP2Score;
+          } else if (_scoreList.last.gameLeg) {
+            _p2Legs = _p2Legs - 1;
+            _p1Points = _scoreList.last.previousP1Score;
+            _p2Points = _scoreList.last.previousP2Score;
+          } else {
+            _p2Points = _p2Points + _scoreList.last.score;
+          }
           _turn = 2;
           break;
         case 2:
-          _p1Points = _p1Points + _scoreList.last;
+          if (_scoreList.last.gameSet) {
+            _p1Sets = _p1Sets - 1;
+            _p1Legs = _maxLegs - 1;
+            _p1Points = _scoreList.last.previousP1Score;
+            _p2Points = _scoreList.last.previousP2Score;
+          } else if (_scoreList.last.gameLeg) {
+            _p1Legs = _p1Legs - 1;
+            _p1Points = _scoreList.last.previousP1Score;
+            _p2Points = _scoreList.last.previousP2Score;
+          } else {
+            _p1Points = _p1Points + _scoreList.last.score;
+          }
           _turn = 1;
           break;
       }
@@ -385,7 +418,7 @@ class _GameState extends State<Game> {
                                                       Radius.circular(35))),
                                           child: Center(
                                             child: Text(
-                                              "$_p1Legs Legs $_p2Sets",
+                                              "$_p1Legs Legs $_p2Legs",
                                               style: const TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 50),
