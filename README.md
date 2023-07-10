@@ -1,1 +1,1 @@
-# DartsApp
+# Simple Darts Scorer
