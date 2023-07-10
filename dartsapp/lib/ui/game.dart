@@ -38,7 +38,7 @@ class _GameState extends State<Game> {
   bool _p1Win = false;
   bool _p2Win = false;
   List<String> _checkouts = ["", "", "", ""];
-  final List<GameModel> _scoreList = [];
+  List<GameModel> _scoreList = [];
   String _view = "";
   final DomainBloc _gameBloc = DomainBloc();
   bool init = false;
@@ -200,6 +200,7 @@ class _GameState extends State<Game> {
           _p2Sets,
           _maxLegs,
           _maxSets,
+          ScoresList(_scoreList),
           _turn)));
     }
     _updateCheckouts();
@@ -224,6 +225,7 @@ class _GameState extends State<Game> {
             _p2Sets,
             _maxLegs,
             _maxSets,
+            ScoresList(_scoreList),
             _turn)));
       }
       if (_view == currentGame) {
@@ -260,6 +262,7 @@ class _GameState extends State<Game> {
       create: (context) => _gameBloc,
       child: BlocListener<DomainBloc, DomainState>(
         listener: (context, state) {
+          print(state);
           if (state is DomainStateLoadedCurrentGame) {
             _player1 = state.currentgame.player1;
             _p1Points = state.currentgame.player1Points;
@@ -271,6 +274,7 @@ class _GameState extends State<Game> {
             _p2Sets = state.currentgame.player2Sets;
             _maxLegs = state.currentgame.maxLegs;
             _maxSets = state.currentgame.maxSets;
+            _scoreList = state.currentgame.scoreList.scoresList;
             _turn = state.currentgame.turn;
             setState(() {});
           }
@@ -591,6 +595,8 @@ class _GameState extends State<Game> {
                                                             _p2Sets,
                                                             _maxLegs,
                                                             _maxSets,
+                                                            ScoresList(
+                                                                _scoreList),
                                                             _turn)));
                                               }
                                             }

@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:dartsapp/data/services/database/models/database_current_game_model.dart';
+import 'package:dartsapp/domain/models/game_model.dart';
 
 class CurrentGameModel {
   final String player1;
@@ -11,6 +14,7 @@ class CurrentGameModel {
   final int player2Sets;
   final int maxLegs;
   final int maxSets;
+  final ScoresList scoreList;
   final int turn;
 
   CurrentGameModel(
@@ -24,6 +28,7 @@ class CurrentGameModel {
       this.player2Sets,
       this.maxLegs,
       this.maxSets,
+      this.scoreList,
       this.turn);
 
   static CurrentGameModel fromDatabase(
@@ -39,6 +44,7 @@ class CurrentGameModel {
         currentGameDatabaseModel.player2Sets,
         currentGameDatabaseModel.maxLegs,
         currentGameDatabaseModel.maxSets,
+        ScoresList.fromJson(jsonDecode(currentGameDatabaseModel.scoresList)),
         currentGameDatabaseModel.turn);
   }
 }

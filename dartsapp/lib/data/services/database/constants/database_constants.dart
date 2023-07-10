@@ -14,6 +14,7 @@ const player2SetsColumn = "player2Sets";
 const maxLegsColumn = "maxLegs";
 const maxSetsColumn = "maxSets";
 const turnColumn = "turn";
+const scoreListColumn = "scoreList";
 
 // Table creations
 const createCurrentGameTable = """ CREATE TABLE IF NOT EXISTS "currentGame" (
@@ -28,6 +29,7 @@ const createCurrentGameTable = """ CREATE TABLE IF NOT EXISTS "currentGame" (
         "player2Sets" INTEGER NOT NULL,
         "maxLegs" INTEGER NOT NULL,
         "maxSets" INTEGER NOT NULL,
+        "scoreList" TEXT NOT NULL,
         "turn" INTEGER NOT NULL,
         PRIMARY KEY("id" AUTOINCREMENT)
       );""";

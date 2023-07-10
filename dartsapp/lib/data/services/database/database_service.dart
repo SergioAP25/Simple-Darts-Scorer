@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dartsapp/domain/models/current_game_model.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
@@ -79,6 +81,7 @@ class DartsService {
           player2SetsColumn: currentGame.player2Sets,
           maxLegsColumn: currentGame.maxLegs,
           maxSetsColumn: currentGame.maxSets,
+          scoreListColumn: jsonEncode(currentGame.scoreList.toJson()),
           turnColumn: currentGame.turn,
         },
         conflictAlgorithm: ConflictAlgorithm.replace);

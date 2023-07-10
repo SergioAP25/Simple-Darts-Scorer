@@ -18,6 +18,7 @@ class DomainBloc extends Bloc<DomainEvent, DomainState> {
         final result = await _getCurrentGame.getCurrentGame();
         emit(DomainStateLoadedCurrentGame(result));
       } catch (e) {
+        print(e);
         emit(const DomainError("An error ocurred"));
       }
     });
