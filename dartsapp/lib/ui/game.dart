@@ -671,9 +671,6 @@ class _GameState extends State<Game> {
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      height: 15,
-                                    ),
                                     Flexible(
                                       child: Container(
                                           width: double.infinity,

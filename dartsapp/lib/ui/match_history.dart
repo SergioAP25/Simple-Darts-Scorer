@@ -27,6 +27,8 @@ class _MatchHistoryState extends State<MatchHistory> {
 
   @override
   Widget build(BuildContext context) {
+    String test =
+        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     _matchHistoryBloc.add(const GetMatchHistoryEvent());
     return BlocProvider(
       create: (context) => _matchHistoryBloc,
@@ -55,7 +57,7 @@ class _MatchHistoryState extends State<MatchHistory> {
                 ),
                 Container(
                   height: constraints.maxHeight * 0.75,
-                  width: constraints.maxWidth * 0.5,
+                  width: constraints.maxWidth * 0.85,
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.8),
                     borderRadius: const BorderRadius.all(Radius.circular(15)),
@@ -63,50 +65,207 @@ class _MatchHistoryState extends State<MatchHistory> {
                       BoxShadow(
                         spreadRadius: 3,
                         blurRadius: 5,
-                        color: const Color.fromARGB(255, 194, 167, 17)
+                        color: const Color.fromRGBO(194, 167, 17, 1)
                             .withOpacity(0.3),
                       ),
                     ],
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
+                  child: BlocBuilder<DomainBloc, DomainState>(
+                    builder: (context, state) {
+                      if (state is DomainStateLoadedMatchHistory) {
+                        _matchHistory = state.matchHistory;
+                        return Column(
+                          children: [
+                            SizedBox(
+                                width: double.infinity,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      border: Border(
+                                          bottom: BorderSide(
+                                              color: Color.fromRGBO(
+                                                  134, 116, 11, 0.5),
+                                              width: 3))),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.red, width: 5)),
+                                    child: const Row(
+                                      children: [
+                                        Flexible(
+                                          child: SizedBox(
+                                            width: 135,
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: SizedBox(
+                                            width: 200,
+                                            child: Text(
+                                              "Partida",
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 42,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: SizedBox(
+                                            width: 225,
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: SizedBox(
+                                            width: 200,
+                                            child: Text(
+                                              "Ganador",
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 42,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: SizedBox(
+                                            width: 95,
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: SizedBox(
+                                            width: 200,
+                                            child: Text(
+                                              "Fecha",
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 42,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.red, width: 5)),
+                                child: Center(
+                                  child: ListView.builder(
+                                    itemCount: _matchHistory.length,
+                                    itemBuilder: (context, index) {
+                                      return Row(
+                                        children: [
+                                          Flexible(
+                                            child: SizedBox(
+                                              width: 200,
+                                              child: Text(
+                                                _matchHistory[index].player1,
+                                                textAlign: TextAlign.center,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 42,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          const Flexible(
+                                            child: SizedBox(
+                                              width: 10,
+                                            ),
+                                          ),
+                                          Flexible(
+                                            child: SizedBox(
+                                                width: 50,
+                                                height: 50,
+                                                child: Image.asset(
+                                                    "assets/vs.png")),
+                                          ),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          Flexible(
+                                            child: SizedBox(
+                                              width: 200,
+                                              child: Text(
+                                                _matchHistory[index].player2,
+                                                textAlign: TextAlign.center,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 42),
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 100,
+                                          ),
+                                          Flexible(
+                                            child: SizedBox(
+                                              width: 200,
+                                              child: Text(
+                                                test,
+                                                textAlign: TextAlign.center,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 42),
+                                              ),
+                                            ),
+                                          ),
+                                          const Flexible(
+                                            child: SizedBox(
+                                              width: 100,
+                                            ),
+                                          ),
+                                          Flexible(
+                                            child: SizedBox(
+                                              width: 200,
+                                              child: Text(
+                                                test,
+                                                textAlign: TextAlign.center,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 42),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      }
+                      return Expanded(
                         child: SizedBox(
-                          width: 500,
-                          height: 500,
-                          child: BlocBuilder<DomainBloc, DomainState>(
-                            builder: (context, state) {
-                              if (state is DomainStateLoadedMatchHistory) {
-                                _matchHistory = state.matchHistory;
-                                return ListView.builder(
-                                  itemCount: _matchHistory.length,
-                                  itemBuilder: (context, index) {
-                                    return Center(
-                                        child: Text(
-                                      _matchHistory[index].player1,
-                                      style: const TextStyle(
-                                          color: Colors.white, fontSize: 42),
-                                    ));
-                                  },
-                                );
-                              }
-                              return ListView.builder(
-                                itemCount: _matchHistory.length,
-                                itemBuilder: (context, index) {
-                                  return Center(
-                                      child: Text(
-                                    _matchHistory[index].player1,
-                                    style: const TextStyle(
-                                        color: Colors.white, fontSize: 42),
-                                  ));
-                                },
-                              );
+                          height: constraints.maxHeight * 0.6,
+                          child: ListView.builder(
+                            itemCount: _matchHistory.length,
+                            itemBuilder: (context, index) {
+                              return Center(
+                                  child: Text(
+                                _matchHistory[index].player1,
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 42),
+                              ));
                             },
                           ),
                         ),
-                      )
-                    ],
+                      );
+                    },
                   ),
                 ),
                 Positioned(
