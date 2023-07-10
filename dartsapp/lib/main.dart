@@ -1,5 +1,6 @@
 import 'package:dartsapp/ui/game.dart';
 import 'package:dartsapp/ui/home_view.dart';
+import 'package:dartsapp/ui/match_history.dart';
 import 'package:dartsapp/ui/play_view.dart';
 import 'package:dartsapp/ui/winner_view.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         homeRoute: (context) => const HomeView(),
         playRoute: (context) => const PlayView(),
         gameRoute: (context) => const Game(),
-        winnerRoute: (context) => const WinnerView()
+        winnerRoute: (context) => const WinnerView(),
+        matchHistoryRoute: (context) => const MatchHistory()
       },
     );
   }

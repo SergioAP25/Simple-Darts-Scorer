@@ -156,7 +156,9 @@ class _HomeViewWidgetsState extends State<HomeViewWidgets> {
                         bottomLeft: Radius.circular(10),
                         bottomRight: Radius.circular(10))),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(matchHistoryRoute);
+                  },
                   child: Text(
                     "Historial de partidas",
                     style: GoogleFonts.pressStart2p(),

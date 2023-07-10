@@ -2,12 +2,14 @@ import 'dart:ui';
 
 import 'package:dartsapp/constants/views.dart';
 import 'package:dartsapp/domain/bloc/domain_event.dart';
+import 'package:dartsapp/domain/models/match_history_game_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../constants/routes.dart';
 import '../domain/bloc/domain_bloc.dart';
 import '../domain/bloc/domain_state.dart';
+import 'package:intl/intl.dart';
 
 class WinnerView extends StatefulWidget {
   const WinnerView({super.key});
@@ -25,6 +27,8 @@ class _WinnerViewState extends State<WinnerView> {
   late String _winner;
   final DomainBloc _winnerBloc = DomainBloc();
   int _deletedCurrentGame = 0;
+  final DateFormat formatter = DateFormat('yyyy-MM-dd');
+  final DateTime date = DateTime.now();
 
   @override
   void initState() {
@@ -43,6 +47,8 @@ class _WinnerViewState extends State<WinnerView> {
     _maxSets = int.parse(_args![3]);
     _winner = _args![4];
     _winnerBloc.add(const DeleteCurrentGameEvent());
+    _winnerBloc.add(InsertMatchHistoryGameEvent(MatchHistoryGameModel(
+        _player1, _player2, _winner, formatter.format(date))));
 
     return BlocProvider(
       create: (context) => _winnerBloc,

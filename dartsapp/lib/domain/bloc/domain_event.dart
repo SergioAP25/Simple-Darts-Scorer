@@ -1,4 +1,5 @@
 import 'package:dartsapp/domain/models/current_game_model.dart';
+import 'package:dartsapp/domain/models/match_history_game_model.dart';
 import 'package:flutter/cupertino.dart';
 
 @immutable
@@ -21,4 +22,13 @@ class DeleteCurrentGameEvent extends DomainEvent {
 
 class CountCurrentGameEvent extends DomainEvent {
   const CountCurrentGameEvent();
+}
+
+class InsertMatchHistoryGameEvent extends DomainEvent {
+  final MatchHistoryGameModel matchHistoryGame;
+  const InsertMatchHistoryGameEvent(this.matchHistoryGame);
+}
+
+class GetMatchHistoryEvent extends DomainEvent {
+  const GetMatchHistoryEvent();
 }

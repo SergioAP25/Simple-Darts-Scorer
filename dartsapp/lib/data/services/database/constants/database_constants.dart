@@ -1,5 +1,6 @@
 const dbName = "darts.db";
 const currentGameTable = "currentGame";
+const matchHistoryTable = "matchHistory";
 
 // Current Game
 const currentGameIdColumn = "id";
@@ -16,6 +17,13 @@ const maxSetsColumn = "maxSets";
 const turnColumn = "turn";
 const scoreListColumn = "scoreList";
 
+// Match History
+const matchHistoryIdColumn = "id";
+const mhPlayer1Column = "player1";
+const mhPlayer2Column = "player2";
+const winnerColumn = "winner";
+const dateColumn = "date";
+
 // Table creations
 const createCurrentGameTable = """ CREATE TABLE IF NOT EXISTS "currentGame" (
         "id" INTEGER NOT NULL,
@@ -31,5 +39,14 @@ const createCurrentGameTable = """ CREATE TABLE IF NOT EXISTS "currentGame" (
         "maxSets" INTEGER NOT NULL,
         "scoreList" TEXT NOT NULL,
         "turn" INTEGER NOT NULL,
+        PRIMARY KEY("id" AUTOINCREMENT)
+      );""";
+
+const createMatchHistoryTable = """ CREATE TABLE IF NOT EXISTS "matchHistory" (
+        "id" INTEGER NOT NULL,
+        "player1" TEXT NOT NULL,
+        "player2" TEXT NOT NULL,
+        "winner" TEXT NOT NULL,
+        "date" TEXT NOT NULL,
         PRIMARY KEY("id" AUTOINCREMENT)
       );""";

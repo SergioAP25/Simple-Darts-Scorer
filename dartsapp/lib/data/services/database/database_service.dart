@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:dartsapp/data/services/database/models/database_match_history_game_model.dart';
 import 'package:dartsapp/domain/models/current_game_model.dart';
+import 'package:dartsapp/domain/models/match_history_game_model.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import 'constants/database_constants.dart';
@@ -49,6 +51,7 @@ class DartsService {
       _db = db;
 
       await db.execute(createCurrentGameTable);
+      await db.execute(createMatchHistoryTable);
     } on MissingPlatformDirectoryException {
       throw UnableToGetDocumentsDirectory();
     }
@@ -112,5 +115,33 @@ class DartsService {
     final result = await db.rawQuery("SELECT COUNT(*) FROM currentGame");
 
     return result.first["COUNT(*)"] as int;
+  }
+
+  Future<void> insertMatchHistoryGame(
+      {required MatchHistoryGameModel matchHistoryGameModel}) async {
+    await _ensureDbIsOpen();
+    final db = _getDatabaseOrThrow();
+
+    await db.insert(
+        matchHistoryTable,
+        {
+          mhPlayer1Column: matchHistoryGameModel.player1,
+          mhPlayer2Column: matchHistoryGameModel.player2,
+          winnerColumn: matchHistoryGameModel.winner,
+          dateColumn: matchHistoryGameModel.date
+        },
+        conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  Future<Iterable<MatchHistoryGameDatabaseModel>> getMatchHistory() async {
+    await _ensureDbIsOpen();
+    final db = _getDatabaseOrThrow();
+
+    final results = await db.query(
+      matchHistoryTable,
+    );
+    print(results);
+    return results.map((matchHistoryRow) =>
+        MatchHistoryGameDatabaseModel.fromRow(matchHistoryRow));
   }
 }

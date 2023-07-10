@@ -1,4 +1,5 @@
 import 'package:dartsapp/domain/models/current_game_model.dart';
+import 'package:dartsapp/domain/models/match_history_game_model.dart';
 import 'package:flutter/cupertino.dart';
 
 @immutable
@@ -31,6 +32,11 @@ class DomainStateLoadedCountCurrentGame extends DomainState {
 class DomainStateDeleted extends DomainState {
   final int deleted;
   const DomainStateDeleted(this.deleted);
+}
+
+class DomainStateLoadedMatchHistory extends DomainState {
+  final List<MatchHistoryGameModel> matchHistory;
+  const DomainStateLoadedMatchHistory(this.matchHistory);
 }
 
 class DomainError extends DomainState {
