@@ -657,24 +657,24 @@ class _GameState extends State<Game> {
                                     const SizedBox(
                                       height: 25,
                                     ),
-                                    Flexible(
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: 50,
-                                        color: Colors.transparent,
-                                        child: const Text(
-                                          "Posibilidades de cierre",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 35),
-                                        ),
+                                    Container(
+                                      width: double.infinity,
+                                      height: 50,
+                                      color: Colors.transparent,
+                                      child: const Text(
+                                        "Posibilidades de cierre",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 35),
                                       ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
                                     ),
                                     Flexible(
                                       child: Container(
                                           width: double.infinity,
-                                          height: double.infinity,
+                                          height: 225,
                                           color: Colors.transparent,
                                           child: ListView.builder(
                                             itemCount: _checkouts.length,
