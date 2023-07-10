@@ -262,7 +262,6 @@ class _GameState extends State<Game> {
       create: (context) => _gameBloc,
       child: BlocListener<DomainBloc, DomainState>(
         listener: (context, state) {
-          print(state);
           if (state is DomainStateLoadedCurrentGame) {
             _player1 = state.currentgame.player1;
             _p1Points = state.currentgame.player1Points;
