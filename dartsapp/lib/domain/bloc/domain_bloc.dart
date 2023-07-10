@@ -69,9 +69,6 @@ class DomainBloc extends Bloc<DomainEvent, DomainState> {
         final result = await _getMatchHistory.getMatchHistory();
         emit(DomainStateLoadedMatchHistory(result));
       } catch (e) {
-        print("Error:");
-        print(e);
-
         emit(const DomainError("An error ocurred"));
       }
     });

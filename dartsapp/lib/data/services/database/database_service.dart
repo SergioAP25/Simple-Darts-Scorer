@@ -140,7 +140,6 @@ class DartsService {
     final results = await db.query(
       matchHistoryTable,
     );
-    print(results);
     return results.map((matchHistoryRow) =>
         MatchHistoryGameDatabaseModel.fromRow(matchHistoryRow));
   }
