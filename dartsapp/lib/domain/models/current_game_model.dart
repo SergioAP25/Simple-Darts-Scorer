@@ -9,6 +9,8 @@ class CurrentGameModel {
   final int player2Points;
   final int player2Legs;
   final int player2Sets;
+  final int maxLegs;
+  final int maxSets;
   final int turn;
 
   CurrentGameModel(
@@ -20,6 +22,8 @@ class CurrentGameModel {
       this.player2Points,
       this.player2Legs,
       this.player2Sets,
+      this.maxLegs,
+      this.maxSets,
       this.turn);
 
   static CurrentGameModel fromDatabase(
@@ -33,6 +37,8 @@ class CurrentGameModel {
         currentGameDatabaseModel.player2Points,
         currentGameDatabaseModel.player2Legs,
         currentGameDatabaseModel.player2Sets,
+        currentGameDatabaseModel.maxLegs,
+        currentGameDatabaseModel.maxSets,
         currentGameDatabaseModel.turn);
   }
 }

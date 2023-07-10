@@ -99,9 +99,7 @@ class _GameState extends State<Game> {
       _scoreList.last.gameLeg = true;
     }
     if (_p2Points == 0) {
-      print(_p2Legs);
       _p2Legs++;
-      print(_p2Legs);
       _scoreList.last.previousP1Score = _p1Points;
       _scoreList.last.previousP2Score = int.parse(_score.text);
       _p1Points = 501;
@@ -191,8 +189,18 @@ class _GameState extends State<Game> {
       }
 
       _scoreList.removeLast();
-      _gameBloc.add(InsertCurrentGameEvent(CurrentGameModel(_player1, _p1Points,
-          _p1Legs, _p1Sets, _player2, _p2Points, _p2Legs, _p2Sets, _turn)));
+      _gameBloc.add(InsertCurrentGameEvent(CurrentGameModel(
+          _player1,
+          _p1Points,
+          _p1Legs,
+          _p1Sets,
+          _player2,
+          _p2Points,
+          _p2Legs,
+          _p2Sets,
+          _maxLegs,
+          _maxSets,
+          _turn)));
     }
     _updateCheckouts();
     setState(() {});
@@ -214,6 +222,8 @@ class _GameState extends State<Game> {
             _p2Points,
             _p2Legs,
             _p2Sets,
+            _maxLegs,
+            _maxSets,
             _turn)));
       }
       if (_view == currentGame) {
@@ -259,6 +269,8 @@ class _GameState extends State<Game> {
             _p2Points = state.currentgame.player2Points;
             _p2Legs = state.currentgame.player2Legs;
             _p2Sets = state.currentgame.player2Sets;
+            _maxLegs = state.currentgame.maxLegs;
+            _maxSets = state.currentgame.maxSets;
             _turn = state.currentgame.turn;
             setState(() {});
           }
@@ -577,6 +589,8 @@ class _GameState extends State<Game> {
                                                             _p2Points,
                                                             _p2Legs,
                                                             _p2Sets,
+                                                            _maxLegs,
+                                                            _maxSets,
                                                             _turn)));
                                               }
                                             }

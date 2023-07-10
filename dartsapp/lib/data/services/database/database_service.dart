@@ -77,6 +77,8 @@ class DartsService {
           player2PointsColumn: currentGame.player2Points,
           player2LegsColumn: currentGame.player2Legs,
           player2SetsColumn: currentGame.player2Sets,
+          maxLegsColumn: currentGame.maxLegs,
+          maxSetsColumn: currentGame.maxSets,
           turnColumn: currentGame.turn,
         },
         conflictAlgorithm: ConflictAlgorithm.replace);
