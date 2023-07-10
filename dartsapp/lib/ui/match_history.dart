@@ -19,6 +19,7 @@ class MatchHistory extends StatefulWidget {
 class _MatchHistoryState extends State<MatchHistory> {
   final DomainBloc _matchHistoryBloc = DomainBloc();
   List<MatchHistoryGameModel> _matchHistory = [];
+  ScrollController _controller = ScrollController();
 
   @override
   void initState() {
@@ -85,185 +86,141 @@ class _MatchHistoryState extends State<MatchHistory> {
                                               color: Color.fromRGBO(
                                                   134, 116, 11, 0.5),
                                               width: 3))),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Colors.red, width: 5)),
-                                    child: const Row(
-                                      children: [
-                                        Flexible(
-                                          child: SizedBox(
-                                            width: 135,
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        width: 135,
+                                      ),
+                                      SizedBox(
+                                        width: 200,
+                                        child: Text(
+                                          "Partida",
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 42,
                                           ),
                                         ),
-                                        Flexible(
-                                          child: SizedBox(
-                                            width: 200,
-                                            child: Text(
-                                              "Partida",
-                                              textAlign: TextAlign.center,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 42,
-                                              ),
-                                            ),
+                                      ),
+                                      SizedBox(
+                                        width: 225,
+                                      ),
+                                      SizedBox(
+                                        width: 200,
+                                        child: Text(
+                                          "Ganador",
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 42,
                                           ),
                                         ),
-                                        Flexible(
-                                          child: SizedBox(
-                                            width: 225,
+                                      ),
+                                      SizedBox(
+                                        width: 95,
+                                      ),
+                                      SizedBox(
+                                        width: 200,
+                                        child: Text(
+                                          "Fecha",
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 42,
                                           ),
                                         ),
-                                        Flexible(
-                                          child: SizedBox(
-                                            width: 200,
-                                            child: Text(
-                                              "Ganador",
-                                              textAlign: TextAlign.center,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 42,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Flexible(
-                                          child: SizedBox(
-                                            width: 95,
-                                          ),
-                                        ),
-                                        Flexible(
-                                          child: SizedBox(
-                                            width: 200,
-                                            child: Text(
-                                              "Fecha",
-                                              textAlign: TextAlign.center,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 42,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 )),
                             Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: Colors.red, width: 5)),
-                                child: Center(
-                                  child: ListView.builder(
-                                    itemCount: _matchHistory.length,
-                                    itemBuilder: (context, index) {
-                                      return Row(
-                                        children: [
-                                          Flexible(
-                                            child: SizedBox(
-                                              width: 200,
-                                              child: Text(
-                                                _matchHistory[index].player1,
-                                                textAlign: TextAlign.center,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 42,
-                                                ),
-                                              ),
-                                            ),
+                              child: ListView.builder(
+                                itemCount: _matchHistory.length,
+                                itemBuilder: (context, index) {
+                                  return Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        width: 200,
+                                        child: Text(
+                                          test,
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 42,
                                           ),
-                                          const Flexible(
-                                            child: SizedBox(
-                                              width: 10,
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: Image.asset(
-                                                    "assets/vs.png")),
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          Flexible(
-                                            child: SizedBox(
-                                              width: 200,
-                                              child: Text(
-                                                _matchHistory[index].player2,
-                                                textAlign: TextAlign.center,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 42),
-                                              ),
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            width: 100,
-                                          ),
-                                          Flexible(
-                                            child: SizedBox(
-                                              width: 200,
-                                              child: Text(
-                                                test,
-                                                textAlign: TextAlign.center,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 42),
-                                              ),
-                                            ),
-                                          ),
-                                          const Flexible(
-                                            child: SizedBox(
-                                              width: 100,
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: SizedBox(
-                                              width: 200,
-                                              child: Text(
-                                                test,
-                                                textAlign: TextAlign.center,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 42),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  ),
-                                ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      SizedBox(
+                                          width: 50,
+                                          height: 50,
+                                          child: Image.asset("assets/vs.png")),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      SizedBox(
+                                        width: 200,
+                                        child: Text(
+                                          test,
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 42),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 100,
+                                      ),
+                                      SizedBox(
+                                        width: 200,
+                                        child: Text(
+                                          test,
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 42),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 100,
+                                      ),
+                                      SizedBox(
+                                        width: 200,
+                                        child: Text(
+                                          test,
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 42),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
                               ),
                             ),
                           ],
                         );
                       }
-                      return Expanded(
-                        child: SizedBox(
-                          height: constraints.maxHeight * 0.6,
-                          child: ListView.builder(
-                            itemCount: _matchHistory.length,
-                            itemBuilder: (context, index) {
-                              return Center(
-                                  child: Text(
-                                _matchHistory[index].player1,
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 42),
-                              ));
-                            },
-                          ),
-                        ),
+                      return ListView.builder(
+                        itemCount: _matchHistory.length,
+                        itemBuilder: (context, index) {
+                          return const Center(
+                              child: Text(
+                            "",
+                          ));
+                        },
                       );
                     },
                   ),
