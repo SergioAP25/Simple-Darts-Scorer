@@ -41,6 +41,7 @@ class _GameState extends State<Game> {
   String _view = "";
   final DomainBloc _gameBloc = DomainBloc();
   bool init = false;
+  FocusNode _scoreNode = FocusNode();
 
   void _calculateResult(int score) {
     int aux;
@@ -494,6 +495,7 @@ class _GameState extends State<Game> {
                                         width: 495,
                                         height: 125,
                                         child: TextField(
+                                          focusNode: _scoreNode,
                                           decoration: const InputDecoration(
                                             label: Center(
                                               child: Text(
@@ -528,6 +530,8 @@ class _GameState extends State<Game> {
                                                 _checkSets();
                                                 _checkWin();
                                                 _updateCheckouts();
+                                                _score.clear();
+                                                _scoreNode.requestFocus();
                                                 _gameBloc.add(
                                                     InsertCurrentGameEvent(
                                                         CurrentGameModel(
