@@ -138,76 +138,82 @@ class _MatchHistoryState extends State<MatchHistory> {
                                   ),
                                 )),
                             Expanded(
-                              child: ListView.builder(
-                                itemCount: _matchHistory.length,
-                                itemBuilder: (context, index) {
-                                  return Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SizedBox(
-                                        width: 200,
-                                        child: Text(
-                                          test,
-                                          textAlign: TextAlign.center,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 42,
+                              child: Scrollbar(
+                                controller: _controller,
+                                child: ListView.builder(
+                                  controller: _controller,
+                                  itemCount: _matchHistory.length,
+                                  itemBuilder: (context, index) {
+                                    return Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          width: 200,
+                                          child: Text(
+                                            _matchHistory[index].player1,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 32,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      SizedBox(
-                                          width: 50,
-                                          height: 50,
-                                          child: Image.asset("assets/vs.png")),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      SizedBox(
-                                        width: 200,
-                                        child: Text(
-                                          test,
-                                          textAlign: TextAlign.center,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 42),
+                                        const SizedBox(
+                                          width: 10,
                                         ),
-                                      ),
-                                      const SizedBox(
-                                        width: 100,
-                                      ),
-                                      SizedBox(
-                                        width: 200,
-                                        child: Text(
-                                          test,
-                                          textAlign: TextAlign.center,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 42),
+                                        SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child:
+                                                Image.asset("assets/vs.png")),
+                                        const SizedBox(
+                                          width: 10,
                                         ),
-                                      ),
-                                      const SizedBox(
-                                        width: 100,
-                                      ),
-                                      SizedBox(
-                                        width: 200,
-                                        child: Text(
-                                          test,
-                                          textAlign: TextAlign.center,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 42),
+                                        SizedBox(
+                                          width: 200,
+                                          child: Text(
+                                            _matchHistory[index].player2,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 32),
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  );
-                                },
+                                        const SizedBox(
+                                          width: 100,
+                                        ),
+                                        SizedBox(
+                                          width: 200,
+                                          child: Text(
+                                            _matchHistory[index].winner,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 32),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 100,
+                                        ),
+                                        SizedBox(
+                                          width: 200,
+                                          child: Text(
+                                            _matchHistory[index].date,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 32),
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ),
                               ),
                             ),
                           ],
