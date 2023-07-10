@@ -28,8 +28,6 @@ class _MatchHistoryState extends State<MatchHistory> {
 
   @override
   Widget build(BuildContext context) {
-    String test =
-        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     _matchHistoryBloc.add(const GetMatchHistoryEvent());
     return BlocProvider(
       create: (context) => _matchHistoryBloc,
