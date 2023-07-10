@@ -41,7 +41,8 @@ class _GameState extends State<Game> {
   String _view = "";
   final DomainBloc _gameBloc = DomainBloc();
   bool init = false;
-  FocusNode _scoreNode = FocusNode();
+  final FocusNode _scoreNode = FocusNode();
+  bool _isHovered = false;
 
   void _calculateResult(int score) {
     int aux;
@@ -555,15 +556,28 @@ class _GameState extends State<Game> {
                                         color: Colors.transparent,
                                         width: 495,
                                         height: 125,
-                                        child: TextButton(
-                                          onPressed: () {
-                                            _undo();
+                                        child: MouseRegion(
+                                          onEnter: (event) {
+                                            setState(() {
+                                              _isHovered = true;
+                                            });
                                           },
-                                          child: const Text(
-                                            "DESHACER",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 40),
+                                          onExit: (event) {
+                                            setState(() {
+                                              _isHovered = false;
+                                            });
+                                          },
+                                          child: IconButton(
+                                            onPressed: () {
+                                              _undo();
+                                            },
+                                            icon: Icon(
+                                              Icons.undo,
+                                              color: _isHovered
+                                                  ? Colors.blue
+                                                  : Colors.white,
+                                              size: 100,
+                                            ),
                                           ),
                                         ),
                                       ),
