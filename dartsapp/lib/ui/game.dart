@@ -133,6 +133,11 @@ class _GameState extends State<Game> {
       winner = _player2;
     }
     if (_p1Win || _p2Win) {
+      _p1Legs = 0;
+      _p1Sets = 0;
+      _p2Legs = 0;
+      _p2Sets = 0;
+      _turn = 1;
       Navigator.of(context).pushReplacementNamed(winnerRoute, arguments: [
         _player1,
         _player2,

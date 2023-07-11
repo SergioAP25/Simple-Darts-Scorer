@@ -26,7 +26,7 @@ class _WinnerViewState extends State<WinnerView> {
   late int _maxSets;
   late String _winner;
   final DomainBloc _winnerBloc = DomainBloc();
-  int _deletedCurrentGame = 0;
+  //int _deletedCurrentGame = 0;
   final DateFormat formatter = DateFormat('yyyy-MM-dd');
   final DateTime date = DateTime.now();
 
@@ -46,7 +46,7 @@ class _WinnerViewState extends State<WinnerView> {
     _maxLegs = int.parse(_args![2]);
     _maxSets = int.parse(_args![3]);
     _winner = _args![4];
-    _winnerBloc.add(const DeleteCurrentGameEvent());
+    //_winnerBloc.add(const DeleteCurrentGameEvent());
     _winnerBloc.add(InsertMatchHistoryGameEvent(MatchHistoryGameModel(
         _player1, _player2, _winner, formatter.format(date))));
 
@@ -174,19 +174,15 @@ class _WinnerViewState extends State<WinnerView> {
                           child: BlocBuilder<DomainBloc, DomainState>(
                             builder: (context, state) {
                               if (state is DomainStateDeleted) {
-                                _deletedCurrentGame = state.deleted;
+                                // _deletedCurrentGame = state.deleted;
                               }
 
                               return TextButton(
-                                onPressed: _deletedCurrentGame == 0
-                                    ? null
-                                    : () {
-                                        Navigator.of(context)
-                                            .pushNamedAndRemoveUntil(
-                                                homeRoute,
-                                                (Route<dynamic> route) =>
-                                                    false);
-                                      },
+                                onPressed: () {
+                                  Navigator.of(context).pushNamedAndRemoveUntil(
+                                      homeRoute,
+                                      (Route<dynamic> route) => false);
+                                },
                                 child: const Text(
                                   "Ir al menú principal",
                                   textAlign: TextAlign.center,

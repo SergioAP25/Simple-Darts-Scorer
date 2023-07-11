@@ -19,7 +19,7 @@ class MatchHistory extends StatefulWidget {
 class _MatchHistoryState extends State<MatchHistory> {
   final DomainBloc _matchHistoryBloc = DomainBloc();
   List<MatchHistoryGameModel> _matchHistory = [];
-  ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
 
   @override
   void initState() {
