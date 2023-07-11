@@ -311,172 +311,271 @@ List<String> calculateCheckout(int score) {
       checkouts.add("T15 D20 (15 T20 D5) -> (15 20 D25)");
       break;
     case 84:
+      checkouts.add("T20 D12 (20 T14 D11) -> (20 14 D25)");
+      checkouts.add("T16 D18 (16 T18 D7) -> (16 18 D25)");
       break;
     case 83:
+      checkouts.add("T17 D16 (17 T16 D9) -> 17 16 D25");
       break;
     case 82:
+      checkouts.add("D25 D16 (25 17 D20)");
       break;
+
     case 81:
+      checkouts.add("T19 D12 (19 T12 D13) -> 19 12 D25");
       break;
     case 80:
+      checkouts.add("T20 D10 (20 20 D20)");
+      checkouts.add("T16 D16 (16 T16 D8)");
       break;
     case 79:
+      checkouts.add("T19 D11 (19 20 D20)");
+      checkouts.add("T13 D20 (13 16 D25)");
       break;
     case 78:
+      checkouts.add("T18 D12 (18 20 D20)");
       break;
     case 77:
+      checkouts.add("T19 D10 (19 18 D20)");
       break;
     case 76:
+      checkouts.add("T20 D8 (20 16 D20)");
+      checkouts.add("T16 D14 (16 20 D20)");
       break;
     case 75:
+      checkouts.add("T17 D12 (17 18 D20)");
       break;
     case 74:
+      checkouts.add("T14 D16 (14 20 D20)");
       break;
     case 73:
+      checkouts.add("T19 D8 (19 14 D20)");
       break;
     case 72:
+      checkouts.add("T20 D6 (20 20 D16)");
+      checkouts.add("T16 D12 (16 16 D20)");
+      checkouts.add("T12 D18 (12 20 D20)");
       break;
     case 71:
+      checkouts.add("T13 D16 (13 18 D20)");
       break;
     case 70:
+      checkouts.add("T18 D8 (18 20 D16)");
+      checkouts.add("T10 D20 (10 20 D20)");
       break;
     case 69:
+      checkouts.add("T15 D12 (15 14 D20)");
+      checkouts.add("T19 D6 (19 18 D16)");
       break;
     case 68:
+      checkouts.add("T20 D4 (20 16 D16)");
+      checkouts.add("T12 D16 (12 16 D20)");
       break;
     case 67:
+      checkouts.add("T17 D8 (17 18 D16)");
       break;
     case 66:
+      checkouts.add("T10 D18 (10 16 D20)");
+      checkouts.add("T14 D12 (14 20 D16)");
+      checkouts.add("T18 D6 (18 16 D16)");
       break;
     case 65:
+      checkouts.add("25 D20 (D25 7 D4)");
+      checkouts.add("T19 D4 (19 6 D20)");
       break;
     case 64:
+      checkouts.add("T16 D8 (16 16 D16)");
       break;
     case 63:
+      checkouts.add("T13 D12 (13 18 D16)");
+      checkouts.add("T17 D6 (17 6 D20)");
+      checkouts.add("T9 D18 (9 14 D20)");
       break;
     case 62:
+      checkouts.add("T10 D16 (10 20 D16)");
+      checkouts.add("T14 D10 (14 16 D16)");
       break;
     case 61:
+      checkouts.add("25 D18 (D25 3 D4)");
+      checkouts.add("T15 D8 (15 6 D20)");
       break;
     case 60:
+      checkouts.add("20 D20");
       break;
     case 59:
+      checkouts.add("19 D20");
       break;
     case 58:
+      checkouts.add("18 D20");
       break;
     case 57:
+      checkouts.add("17 D20");
       break;
     case 56:
+      checkouts.add("16 D20");
       break;
     case 55:
+      checkouts.add("15 D20");
       break;
     case 54:
+      checkouts.add("18 D18");
       break;
     case 53:
+      checkouts.add("13 D20");
       break;
     case 52:
+      checkouts.add("20 D16");
       break;
     case 51:
+      checkouts.add("19 D16");
       break;
     case 50:
+      checkouts.add("18 D16");
+      checkouts.add("D25");
       break;
     case 49:
+      checkouts.add("17 D16");
       break;
     case 48:
+      checkouts.add("16 D16");
       break;
     case 47:
+      checkouts.add("15 D16");
       break;
     case 46:
+      checkouts.add("14 D16");
       break;
     case 45:
+      checkouts.add("13 D16");
       break;
     case 44:
+      checkouts.add("12 D16");
       break;
     case 43:
+      checkouts.add("11 D16");
       break;
     case 42:
+      checkouts.add("10 D16");
       break;
     case 41:
+      checkouts.add("9 D16");
       break;
     case 40:
+      checkouts.add("D20");
       break;
     case 39:
+      checkouts.add("7 D16");
       break;
     case 38:
+      checkouts.add("D19");
       break;
     case 37:
+      checkouts.add("5 D16");
       break;
     case 36:
+      checkouts.add("D18");
       break;
     case 35:
+      checkouts.add("3 D16");
       break;
     case 34:
+      checkouts.add("D17");
       break;
     case 33:
+      checkouts.add("1 D16");
       break;
     case 32:
+      checkouts.add("D16");
       break;
     case 31:
+      checkouts.add("7 D12");
       break;
     case 30:
+      checkouts.add("D15");
       break;
     case 29:
+      checkouts.add("17 D6");
       break;
     case 28:
+      checkouts.add("D14");
       break;
     case 27:
+      checkouts.add("19 D4");
       break;
     case 26:
+      checkouts.add("D13");
       break;
     case 25:
+      checkouts.add("17 D4");
       break;
     case 24:
+      checkouts.add("D12");
       break;
     case 23:
+      checkouts.add("19 D2");
       break;
     case 22:
+      checkouts.add("D11");
       break;
     case 21:
+      checkouts.add("17 D2");
       break;
     case 20:
+      checkouts.add("D10");
       break;
     case 19:
+      checkouts.add("11 D4");
       break;
     case 18:
+      checkouts.add("D9");
       break;
     case 17:
+      checkouts.add("13 D2");
       break;
     case 16:
+      checkouts.add("D8");
       break;
     case 15:
+      checkouts.add("13 D1");
       break;
     case 14:
+      checkouts.add("D7");
       break;
     case 13:
+      checkouts.add("11 D1");
       break;
     case 12:
+      checkouts.add("D6");
       break;
     case 11:
+      checkouts.add("3 D4");
       break;
     case 10:
+      checkouts.add("D5");
       break;
     case 9:
+      checkouts.add("1 D4");
       break;
     case 8:
+      checkouts.add("D4");
       break;
     case 7:
+      checkouts.add("3 D2");
       break;
     case 6:
+      checkouts.add("D3");
       break;
     case 5:
+      checkouts.add("1 D2");
       break;
     case 4:
+      checkouts.add("D2");
       break;
     case 3:
+      checkouts.add("1 D1");
       break;
     case 2:
-      break;
-    case 1:
+      checkouts.add("D1");
       break;
   }
   return checkouts;
