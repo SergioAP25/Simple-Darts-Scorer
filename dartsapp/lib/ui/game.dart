@@ -694,7 +694,7 @@ class _GameState extends State<Game> {
                                                   style: const TextStyle(
                                                       color: Color.fromARGB(
                                                           255, 92, 199, 96),
-                                                      fontSize: 35),
+                                                      fontSize: 30),
                                                 );
                                               },
                                             ),
