@@ -7,8 +7,7 @@
  - Historial de partidas
 
 ## Funcionamiento
-El repositorio contiene tanto el código de la aplicación como un instalador, tan sólo ejecútalo 
-si quieres instalar la aplicación en windows
+Descarga el instalador de la aplicación en releases e instálala para poder ejecutarla
 
 ## Capturas de pantalla
 <img src="screenshots/1.jpg" align="left"
