@@ -263,6 +263,7 @@ class _GameState extends State<Game> {
     _view = _args![0];
 
     _manageInit();
+    _updateCheckouts();
 
     return BlocProvider(
       create: (context) => _gameBloc,
